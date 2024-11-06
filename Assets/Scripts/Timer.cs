@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 // Timer 프리팹을 캔버스에 넣은 후 시작하면 작동
 public class Timer : MonoBehaviour
 {
-    public static bool timerIsDone; // 타이머가 끝났는지 여부, 다른 곳에서도 사용하기 편하게 스태틱으로 선언
+    private static bool timerIsDone; // 타이머가 끝났는지 여부, 다른 곳에서도 공유하기 위해 스태틱으로 선언
     [SerializeField] float maxTime; // 제한시간
     [SerializeField] GameObject restartPanel;
 
@@ -47,7 +47,6 @@ public class Timer : MonoBehaviour
         timerIsDone = true;
         countDown.GameStop();
         restartPanel.SetActive(true);
-        //timescale로 멈추거나 작동 중이던 함수 정지 후 모달 띄우기
     }
 
     public void ReStart(){

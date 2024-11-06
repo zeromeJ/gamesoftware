@@ -10,11 +10,14 @@ using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour
 {
-    public static bool countdownDone; // 타이머가 끝났는지 여부, 다른 곳에서도 공유하기 위해 스태틱으로 선언, Get함수로 사용 가능
+    private static bool countdownDone; // 타이머가 끝났는지 여부, 다른 곳에서도 공유하기 위해 스태틱으로 선언
+
+    [SerializeField] int countdownTime = 3; // 시간 설정
 
     TextMeshProUGUI text;
-    float gameTimeMultiplier = 1f; //기존 게임 배속 저장하는 변수
-    int countDownTime = 3;
+    float gameTimeMultiplier = 1f; //게임 배속
+
+    int curCount;
 
     void Start()
     {
@@ -28,12 +31,12 @@ public class CountDown : MonoBehaviour
     }
 
     public void GameStop(){
-        gameTimeMultiplier = Time.timeScale;
+        countdownDone = false;
         Time.timeScale = 0;
     }
 
     public void GameResume(){
-        countDownTime = 3;
+        curCount = countdownTime;
         CountStart();
     }
 
@@ -46,18 +49,17 @@ public class CountDown : MonoBehaviour
     }
 
     public void CountStart(){
-        countdownDone = false;
         this.gameObject.SetActive(true);
-        text.text = countDownTime.ToString();
+        text.text = curCount.ToString();
         StartCoroutine(CountDownStart());
     }
 
     IEnumerator CountDownStart(){
         while(true){
             yield return new WaitForSecondsRealtime(1f);
-            countDownTime -= 1;
+            curCount -= 1;
 
-            if(countDownTime == 0){
+            if(curCount <= 0){
                 text.text = "Game Start!";
                 yield return new WaitForSecondsRealtime(1f);
                 countdownDone = true;
@@ -66,7 +68,7 @@ public class CountDown : MonoBehaviour
                 yield return null;
             }
 
-            text.text = countDownTime.ToString();
+            text.text = curCount.ToString();
         }
     }
 }
