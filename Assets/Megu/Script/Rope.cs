@@ -7,28 +7,47 @@ public class Rope : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-    public float RopeSpeed = 0.5f;
+    public float ropeSpeed = 0.5f;
+    private float currentSpeed;
+    private bool isReversing = false;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-
+        currentSpeed = ropeSpeed;
         Debug.Log("Rope Setup");
     }
 
     // Update is called once per frame
     void Update()
     {
-        AnimatorStateInfo animStateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        
-        // 애니메이션이 종료되었는지 확인 (NormalizedTime이 1이면 종료)
-        if (animStateInfo.normalizedTime >= 1.0f && !animStateInfo.loop)
+        // 현재 애니메이션 상태 정보 가져오기
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        // 애니메이션이 종료되었고, 루프가 꺼져 있을 때
+        if (stateInfo.normalizedTime >= 1.0f && !isReversing)
         {
-            Debug.Log("애니메이션이 종료되었습니다.");
-            animator.SetFloat("Speed", RopeSpeed * -1);
-            animator.Play(0);
+            // speed를 -1로 설정하여 반대로 재생
+            animator.SetFloat("Speed", ropeSpeed * - 1);
+            isReversing = true;
+            spriteRenderer.sortingOrder++;
         }
+
+        // 애니메이션이 반대로 재생되는 동안
+        if (isReversing)
+        {
+            // 애니메이션이 끝나면 다시 원래 속도로 설정
+            if (stateInfo.normalizedTime <= 0.0f)
+            {
+                animator.SetFloat("Speed", ropeSpeed);
+                isReversing = false;
+                spriteRenderer.sortingOrder--;
+            }
+        }
+
+        //Debug.DrawRay(rigidBody.position, Vector3.down, Color.red);
+        //RaycastHit2D raycastHit = Physics2D.Raycast(rigidBody.position, Vector2.down, 1.0f, LayerMask.GetMask("Platform"));
     }
 
     
