@@ -7,6 +7,7 @@ public class Rope : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private Collider2D collideCheck;
     public float ropeSpeed = 0.5f;
     private float currentSpeed;
     private bool isReversing = false;
@@ -15,6 +16,7 @@ public class Rope : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        collideCheck = GetComponent<Collider2D>();
         currentSpeed = ropeSpeed;
         Debug.Log("Rope Setup");
     }
@@ -46,9 +48,22 @@ public class Rope : MonoBehaviour
             }
         }
 
-        //Debug.DrawRay(rigidBody.position, Vector3.down, Color.red);
-        //RaycastHit2D raycastHit = Physics2D.Raycast(rigidBody.position, Vector2.down, 1.0f, LayerMask.GetMask("Platform"));
     }
 
-    
+    private void FixedUpdate()
+    {
+        if(spriteRenderer.sprite.name == "rope_2" && isReversing)
+        {
+            collideCheck.enabled = true;
+        }
+        else 
+        {
+            collideCheck.enabled = false;
+        }
+    }
+
+    //private void OnCollisionEnter(UnityEngine.Collision collision)
+    //{
+        
+    //}
 }
