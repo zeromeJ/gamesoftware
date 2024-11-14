@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CenterCharacter : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float jumpPower = 12.0f;
     private Rigidbody2D rigidBody;
@@ -18,7 +18,7 @@ public class CenterCharacter : MonoBehaviour
     void Update()
     {
         // 일단은 스페이스바로 점프
-        if(Input.GetKeyDown(KeyCode.Space) /*&& !animator.GetBool("IsJump")*/)
+        if(Input.GetKeyDown(KeyCode.Space) && !animator.GetBool("IsJump"))
         {
             Jump();
         }

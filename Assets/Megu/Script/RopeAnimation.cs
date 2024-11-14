@@ -11,7 +11,6 @@ public class RopeAnimation : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        animator.SetFloat("Speed",ropeSpeed);
     }
 
     private void Update()

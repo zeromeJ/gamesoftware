@@ -864,9 +864,10 @@ GameObject:
   - component: {fileID: 1662061268}
   - component: {fileID: 1662061267}
   - component: {fileID: 1662061266}
-  - component: {fileID: 1662061269}
   - component: {fileID: 1662061270}
+  - component: {fileID: 1662061269}
   - component: {fileID: 1662061271}
+  - component: {fileID: 1662061272}
   m_Layer: 0
   m_Name: Rope
   m_TagString: Untagged
@@ -936,7 +937,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 003951897f19e29469aca0a8aff58386, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79211c3629d26a844b5b2d250b9fde87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1033,6 +1034,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ropeSpeed: 0.5
+--- !u!114 &1662061272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662061265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2da2b4e04808a345a63abaceebce8f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1879493891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,8 +1256,8 @@ GameObject:
   - component: {fileID: 1993935631}
   - component: {fileID: 1993935630}
   - component: {fileID: 1993935629}
-  - component: {fileID: 1993935633}
   - component: {fileID: 1993935634}
+  - component: {fileID: 1993935635}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1391,19 +1404,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1993935633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993935628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec43301eb0b4ddb4d985fcd3da78b9c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpPower: 12
 --- !u!95 &1993935634
 Animator:
   serializedVersion: 5
@@ -1425,6 +1425,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1993935635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993935628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec43301eb0b4ddb4d985fcd3da78b9c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPower: 12
 --- !u!1 &2010378344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,7 +1468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rope: {fileID: 1662061269}
-  player: {fileID: 1993935633}
+  player: {fileID: 1993935635}
 --- !u!4 &2010378346
 Transform:
   m_ObjectHideFlags: 0
