@@ -18,7 +18,7 @@ public class CenterCharacter : MonoBehaviour
     void Update()
     {
         // 일단은 스페이스바로 점프
-        if(Input.GetKeyDown(KeyCode.Space) && !animator.GetBool("IsJump"))
+        if(Input.GetKeyDown(KeyCode.Space) /*&& !animator.GetBool("IsJump")*/)
         {
             Jump();
         }
@@ -30,10 +30,10 @@ public class CenterCharacter : MonoBehaviour
         if(rigidBody.velocity.y < 0)
         {
             Debug.DrawRay(rigidBody.position, Vector3.down, Color.red);
-            RaycastHit2D raycastHit = Physics2D.Raycast(rigidBody.position, Vector2.down, 1.0f, LayerMask.GetMask("Platform"));
+            RaycastHit2D raycastHit = Physics2D.Raycast(rigidBody.position, Vector2.down, 2.5f, LayerMask.GetMask("Platform"));
             if(raycastHit.collider != null )
             {
-                if (raycastHit.distance < 1.0f)
+                if (raycastHit.distance < 2.0f)
                 {   
                     animator.SetBool("IsJump", false);
                 }

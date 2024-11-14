@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject Rope;
-    public GameObject Player;
+    public Rope rope;
+    public CenterCharacter player;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +26,11 @@ public class GameManager : MonoBehaviour
     public void RopeExit()
     {
         Debug.Log("RopeExit");
+    }
+
+    public void Failed()
+    {
+        Debug.Log("Player Failed!");
+        //rope.StopSwinging();
     }
 }

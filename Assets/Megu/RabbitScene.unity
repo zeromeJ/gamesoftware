@@ -847,8 +847,8 @@ Transform:
   m_GameObject: {fileID: 1346559222}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.23, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: -6.92, y: -1.5, z: 0}
+  m_LocalScale: {x: 1.5, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -866,6 +866,7 @@ GameObject:
   - component: {fileID: 1662061266}
   - component: {fileID: 1662061269}
   - component: {fileID: 1662061270}
+  - component: {fileID: 1662061271}
   m_Layer: 0
   m_Name: Rope
   m_TagString: Untagged
@@ -934,13 +935,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 433c57b5374fab74692c6cdcb47ec584, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 003951897f19e29469aca0a8aff58386, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.55, y: 2.55}
+  m_Size: {x: 11.2, y: 5.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -955,8 +956,8 @@ Transform:
   m_GameObject: {fileID: 1662061265}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.010627124, y: -1.54, z: -0.056243856}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
+  m_LocalPosition: {x: 0.01, y: -0.93, z: 0}
+  m_LocalScale: {x: 0.8875, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -973,7 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe0af35e82c0ea4b8b4c6c71942aeea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ropeSpeed: 0.5
+  manager: {fileID: 2010378345}
 --- !u!61 &1662061270
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1006,12 +1007,12 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.29}
+  m_Offset: {x: 0, y: -1.83}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.96875, y: 7.96875}
-    newSize: {x: 2.55, y: 2.55}
+    oldSize: {x: 14, y: 6.5}
+    newSize: {x: 11.2, y: 5.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1019,6 +1020,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 0.42}
   m_EdgeRadius: 0
+--- !u!114 &1662061271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662061265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54735005a5b013543989e744ebab8124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ropeSpeed: 0.5
 --- !u!1 &1879493891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,8 +1225,8 @@ Transform:
   m_GameObject: {fileID: 1962433614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.34, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 7, y: -1.5, z: 0}
+  m_LocalScale: {x: 1.5, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1297,18 +1311,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0099282265, y: 0.000023901463}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.421875, y: 4.046875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.279665, y: 3.9600477}
   m_EdgeRadius: 0
 --- !u!212 &1993935631
 SpriteRenderer:
@@ -1351,7 +1365,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -48548251, guid: deeb7c2ddb38f88458bdd1bd0e08611f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 098f94a0f6815a7449ffccef0de857d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1371,8 +1385,8 @@ Transform:
   m_GameObject: {fileID: 1993935628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.18, y: -2, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: -0.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1440,8 +1454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc701b24e9704b84595ce62baf3ff2cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rope: {fileID: 1662061265}
-  Player: {fileID: 1993935628}
+  rope: {fileID: 1662061269}
+  player: {fileID: 1993935633}
 --- !u!4 &2010378346
 Transform:
   m_ObjectHideFlags: 0
