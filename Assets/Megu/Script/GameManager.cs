@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private int bestScore;
+    private int currentScore;
+
     public Rope rope;
     public Player player;
     public float ropeSpeed = 0.5f;

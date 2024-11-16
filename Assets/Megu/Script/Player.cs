@@ -7,11 +7,13 @@ public class Player : MonoBehaviour
     public float jumpPower = 12.0f;
     private Rigidbody2D rigidBody;
     private Animator animator;
+    private BoxCollider2D boxCollider;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -45,5 +47,11 @@ public class Player : MonoBehaviour
     {
         rigidBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         animator.SetBool("IsJump", true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "Rope")
+            Debug.Log("PlayerTrigger : "+collision.gameObject);
     }
 }
