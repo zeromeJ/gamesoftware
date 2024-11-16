@@ -8,12 +8,16 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigidBody;
     private Animator animator;
     private BoxCollider2D boxCollider;
+    private AudioSource audioSource;
+
+    public GameManager manager;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,11 +51,14 @@ public class Player : MonoBehaviour
     {
         rigidBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         animator.SetBool("IsJump", true);
+        audioSource.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Rope")
-            Debug.Log("PlayerTrigger : "+collision.gameObject);
+        {
+            manager.SendMessage("StuckRope");
+        }
     }
 }
