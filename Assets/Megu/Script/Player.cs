@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // 일단은 스페이스바로 점프
-        if(Input.GetKeyDown(KeyCode.Space) && !animator.GetBool("IsJump"))
+        if(Input.GetKeyDown(KeyCode.Space) && !animator.GetBool("IsJump")/* && manager.isGameActive*/)
         {
             Jump();
         }

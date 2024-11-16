@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    string rabbitGameKey = "Rabbit";
     public int bestScore { get; set; }
     public int currentScore { get; set; }
-
+    //public bool isGameActive = false;
     public GameObject rope;
     public GameObject player;
     public GameObject gameEndPanel;
@@ -15,9 +16,15 @@ public class GameManager : MonoBehaviour
     public float maxRopeSpeed = 1.0f; // 줄넘기 최대 속도
     public float changeInterval = 2.0f; // 속도 변경 주기
 
+    private void Awake()
+    {
+        bestScore = GetBestScore();
+    }
+
     private void Start()
     {
         StartCoroutine(ChangeRopeSpeed());
+        
     }
 
     private IEnumerator ChangeRopeSpeed()
@@ -35,10 +42,27 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("StuckRope!");
         gameEndPanel.SetActive(true);
+        //isGameActive = false;
+
+        SetBestScore();
     }
 
     private void ScoreUp()
     {
         currentScore++;
+    }
+
+    private int GetBestScore()
+    {
+        int best = PlayerPrefs.GetInt(rabbitGameKey);
+        return best;
+    }
+
+    private void SetBestScore()
+    {
+        if (currentScore > GetBestScore())
+        {
+            PlayerPrefs.SetInt(rabbitGameKey, currentScore);
+        }
     }
 }
