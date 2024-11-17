@@ -10,13 +10,11 @@ public class RT_Player : MonoBehaviour
     [SerializeField] CountDown countdown;
     Rigidbody2D playerRb2;
     float horizontal;
-    Animator playerAnimator;
     SpriteRenderer playerSpriteRenderer;
 
     void Start()
     {
         playerRb2 = GetComponent<Rigidbody2D>();
-        playerAnimator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -30,7 +28,6 @@ public class RT_Player : MonoBehaviour
     }
 
     void PlayerMove(){
-        playerAnimator.SetFloat("Speed", Mathf.Abs(horizontal));
         playerRb2.velocity = new Vector2(horizontal * moveSpeed, playerRb2.velocity.y);
         if(horizontal < 0){
             playerSpriteRenderer.flipX = true;
