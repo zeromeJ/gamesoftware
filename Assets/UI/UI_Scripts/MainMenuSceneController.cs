@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuSceneLoader : MonoBehaviour
+public class MainMenuSceneController : MonoBehaviour
 {
+
     public void LoadMyInfoScene()
     {
         SceneManager.LoadScene("MyInfo");
@@ -10,6 +11,18 @@ public class MainMenuSceneLoader : MonoBehaviour
     public void LoadScoreBoardScene()
     {
         SceneManager.LoadScene("ScoreBoard");
+    }
+    public void LoadStage1Scene()
+    {
+
+    }
+    public void LoadStage2Scene()
+    {
+
+    }
+    public void LoadStage3Scene()
+    {
+
     }
     public void ExitGame()
     {

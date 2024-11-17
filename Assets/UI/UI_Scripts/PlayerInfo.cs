@@ -12,44 +12,52 @@ public class PlayerInfo : MonoBehaviour
     private int characterID;
     private string nickname;
 
-    public void SaveIsFirstPlay()
+    // 첫 번째 접속인지 확인 
+    public void SaveLoggedIn()
     {
         PlayerPrefs.SetInt(HasLoggedIn, 1);
     }
-
+    public void SaveNotLoggedIn()
+    {
+        PlayerPrefs.SetInt(HasLoggedIn, 0);
+    }
     public bool LoadHasLoggedIn()
     {
         int _hasLoggedIn = PlayerPrefs.GetInt(HasLoggedIn);
         return (_hasLoggedIn > 0 ? true : false);
     }
 
+    // 선택한 캐릭터 관리 
     void SaveCharacterChoice(int characterID)
     {
         PlayerPrefs.SetInt(CharacterIDKey, characterID);
         PlayerPrefs.Save();
     }
-    void SavePlayerNickname(string nickname)
-    {
-        PlayerPrefs.SetString(NicknameKey, nickname);
-        PlayerPrefs.Save();
-    }
-    
     public int LoadCharacterChoice()
     {
         return PlayerPrefs.GetInt(CharacterIDKey, 0);
     }
 
+    // 닉네임 관리 
+    void SavePlayerNickname(string nickname)
+    {
+        PlayerPrefs.SetString(NicknameKey, nickname);
+        PlayerPrefs.Save();
+    }
     public string LoadPlayerNickname()
     {
         return PlayerPrefs.GetString(NicknameKey, "");
     }
 
-    public void Test_ClearPlayerData()
+    // 플레이어 정보 초기화 
+    public void ClearPlayerData()
     {
+        SaveNotLoggedIn();
         PlayerPrefs.DeleteKey(CharacterIDKey);
         PlayerPrefs.DeleteKey(NicknameKey);
     }
 
+    // Get/Set 메소드 
     public int CharacterID
     {
         get
