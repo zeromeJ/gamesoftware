@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "GitGS.sln"
+    "dotnet.defaultSolution": "GG.sln"
 }
