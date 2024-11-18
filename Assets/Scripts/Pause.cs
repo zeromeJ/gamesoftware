@@ -6,10 +6,8 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject resumePanel;
-    [SerializeField] Image fadeImage;
-    CountDown countDownObject;
+    public CountDown countDownObject;
     
-    // Start is called before the first frame update
     void Start()
     {
         countDownObject = FindObjectOfType<CountDown>();
@@ -21,12 +19,10 @@ public class Pause : MonoBehaviour
         }
         countDownObject.GameStop();
         resumePanel.SetActive(true);
-        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0.5f);
     }
 
     public void ResumeClick(){
         countDownObject.GameResume();
-        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
         resumePanel.SetActive(false);
     }
 }
