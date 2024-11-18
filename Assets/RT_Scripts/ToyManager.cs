@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ToyManager : MonoBehaviour
@@ -15,6 +16,10 @@ public class ToyManager : MonoBehaviour
     }
 
     [SerializeField] GameObject[] toys;
+    [SerializeField] TextMeshProUGUI curScoreText;
+    [SerializeField] TextMeshProUGUI bestScoreText;
+
+    public int curScore;
 
     void Start()
     {
@@ -23,7 +28,11 @@ public class ToyManager : MonoBehaviour
 
     void Update()
     {
-        
+        curScoreText.text = "Score : " + curScore;
+        if(curScore > PlayerPrefs.GetInt("RT_BestScore", 0)){
+            PlayerPrefs.SetInt("RT_BestScore", curScore);
+        }
+        bestScoreText.text = "Best Score : " + PlayerPrefs.GetInt("RT_BestScore", 0);
     }
 
     IEnumerator CreateToy(){
@@ -32,7 +41,7 @@ public class ToyManager : MonoBehaviour
             Vector3 pos = Camera.main.ViewportToWorldPoint(new Vector3(UnityEngine.Random.Range(0.05f, 0.95f), 1.1f, 10));
             pos.z = 0.0f;
             Instantiate(toys[ran], pos, Quaternion.identity);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(Random.Range(0.4f,0.8f));
         }
     }
 }
