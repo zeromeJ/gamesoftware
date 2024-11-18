@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float jumpPower = 12.0f;
+    [SerializeField] float jumpPower = 12.0f;
+    [SerializeField] CountDown countdown;
+    [SerializeField] bool canJump = true;
+    public GameManager manager;
+
     private Rigidbody2D rigidBody;
     private Animator animator;
     private BoxCollider2D boxCollider;
     private AudioSource audioSource;
-
-    public GameManager manager;
 
     void Awake()
     {
@@ -23,8 +25,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 일단은 스페이스바로 점프
-        if(Input.GetKeyDown(KeyCode.Space) && !animator.GetBool("IsJump")/* && manager.isGameActive*/)
+        if (countdown.GetCountDownDone() && canJump)
         {
             Jump();
         }
@@ -49,9 +50,20 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        rigidBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-        animator.SetBool("IsJump", true);
-        audioSource.Play();
+        // PC 스페이스바
+        if (Input.GetKeyDown(KeyCode.Space) && !animator.GetBool("IsJump"))
+        {
+            rigidBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            animator.SetBool("IsJump", true);
+            audioSource.Play();
+        }
+        // mobile 터치
+        if (Input.touchCount > 0 && !animator.GetBool("IsJump"))
+        {
+            rigidBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            animator.SetBool("IsJump", true);
+            audioSource.Play();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,6 +71,7 @@ public class Player : MonoBehaviour
         if(collision.gameObject.name == "Rope")
         {
             manager.SendMessage("StuckRope");
+            canJump = false;
         }
     }
 }

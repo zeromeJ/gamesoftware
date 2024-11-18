@@ -8,7 +8,7 @@ public class Rope : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider;
     private Animator animator;
-    public float ropeSpeed = 0.5f;
+    [SerializeField] float ropeSpeed = 0.5f;
     private bool IsReverse = false;
     public GameManager manager;
 

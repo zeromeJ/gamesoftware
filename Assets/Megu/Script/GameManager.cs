@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,14 +8,15 @@ public class GameManager : MonoBehaviour
     string rabbitGameKey = "Rabbit";
     public int bestScore { get; set; }
     public int currentScore { get; set; }
-    //public bool isGameActive = false;
-    public GameObject rope;
-    public GameObject player;
-    public GameObject gameEndPanel;
-    public float ropeSpeed = 0.5f;
-    public float minRopeSpeed = 0.5f; // 줄넘기 최소 속도
-    public float maxRopeSpeed = 1.0f; // 줄넘기 최대 속도
-    public float changeInterval = 2.0f; // 속도 변경 주기
+
+    [SerializeField] GameObject rope;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject gameEndPanel;
+
+    [SerializeField] float ropeSpeed = 0.5f;
+    [SerializeField] float minRopeSpeed = 0.5f; // 줄넘기 최소 속도
+    [SerializeField] float maxRopeSpeed = 1.0f; // 줄넘기 최대 속도
+    [SerializeField] float changeInterval = 2.0f; // 속도 변경 주기
 
     private void Awake()
     {
@@ -24,7 +26,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(ChangeRopeSpeed());
-        
     }
 
     private IEnumerator ChangeRopeSpeed()
