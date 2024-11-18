@@ -7,13 +7,13 @@ using System.Collections.Generic;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] PlayerInfo playerInfo;
-
+    [SerializeField] List<CharacterData> characterDatas;
+    
     [SerializeField] Image profileImage;
     [SerializeField] Image characterImage;
     [SerializeField] TMP_Text nicknameText;
     [SerializeField] TMP_InputField nicknameInputField;
-
-    [SerializeField] List<CharacterData> characterDatas;
+    [SerializeField] TMP_Text nicknameWarningText;
 
     string _nickname;
     int _characterID;
@@ -21,12 +21,14 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         CheckHasLoggedIn();
+        characterImage.sprite = characterDatas[_characterID].CharacterSprite;
     }
 
     void CheckHasLoggedIn()
     {
         if (!playerInfo.LoadHasLoggedIn())
         {
+            Debug.Log("Open");
             OnClickOpenProfile();
             playerInfo.SaveLoggedIn();
         }
@@ -35,6 +37,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnClickOpenProfile()
     {
+        nicknameWarningText.enabled = false;
         ModalManager.Instance.Open("My Profile",
             OnClickConfirmButton: () =>
             {
@@ -49,10 +52,26 @@ public class MainMenuManager : MonoBehaviour
     // 확인 버튼 클릭 
     void ProfileConfirmButton()
     {
-        _nickname = nicknameInputField.text;
-        playerInfo.Nickname = _nickname;
-        playerInfo.CharacterID = _characterID;
-        UpdateProfileModal();
+        
+        if (CheckValidNickname())
+        {
+            _nickname = nicknameInputField.text;
+            playerInfo.Nickname = _nickname;
+            playerInfo.CharacterID = _characterID;
+            UpdateProfileModal();
+
+            ModalManager.Instance.Close();
+        }
+    }
+    
+    bool CheckValidNickname()
+    {
+        if (nicknameInputField.text.Length == 0)
+        {
+            nicknameWarningText.enabled = true;
+            return false;
+        }
+        return true;
     }
 
     // 모달에 표시될 Player Info 갱신 

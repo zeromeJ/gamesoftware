@@ -14,15 +14,15 @@ public class MainMenuSceneController : MonoBehaviour
     }
     public void LoadStage1Scene()
     {
-
+        SceneManager.LoadScene("Tiger");
     }
     public void LoadStage2Scene()
     {
-
+        SceneManager.LoadScene("RabbitScene");
     }
     public void LoadStage3Scene()
     {
-
+        SceneManager.LoadScene("Receive Toy");
     }
     public void ExitGame()
     {

@@ -1854,6 +1854,7 @@ GameObject:
   - component: {fileID: 1704797454}
   - component: {fileID: 1704797453}
   - component: {fileID: 1704797455}
+  - component: {fileID: 1704797456}
   m_Layer: 5
   m_Name: GameEndPanel
   m_TagString: Untagged
@@ -1931,6 +1932,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7350148659ab3dc469e50b88a92e89d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1704797456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704797451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ffd1a8f0f75dc488a63e0889a7d991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1716085029 stripped
@@ -2032,9 +2045,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1704797455}
-        m_TargetAssemblyTypeName: GameEndPanel, Assembly-CSharp
-        m_MethodName: QuitClick
+      - m_Target: {fileID: 1704797456}
+        m_TargetAssemblyTypeName: ToMainMenuScene, Assembly-CSharp
+        m_MethodName: LoadMainMenuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

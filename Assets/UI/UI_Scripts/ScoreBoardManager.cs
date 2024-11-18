@@ -1,30 +1,38 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections.Generic;
 
 public class ScoreBoardManager : MonoBehaviour
 {
-    [SerializeField]
-    TextMeshProUGUI[] bestScoreTexts;
+    [SerializeField] List<CharacterData> characterDatas;
+    [SerializeField] PlayerInfo playerInfo;
+
+    [SerializeField] TextMeshProUGUI[] bestScoreTexts;
+    [SerializeField] TMP_Text nicknameText;
+    [SerializeField] Image characterImage;
+
+    string _nickname;
+    int _characterID;
 
     private void Awake()
     {
         Test_SaveBestScores();
+        SetProfile();
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void Start()
     {
         LoadBestScores();
+    }
+
+    void SetProfile()
+    {
+        _characterID = playerInfo.CharacterID;
+        _nickname = playerInfo.Nickname;
+        characterImage.sprite = characterDatas[_characterID].CharacterSprite;
+        nicknameText.text = _nickname;
     }
 
     private void LoadBestScores()
@@ -39,9 +47,9 @@ public class ScoreBoardManager : MonoBehaviour
     #region Test_Code
     private void Test_SaveBestScores()
     {
-        PlayerPrefs.SetInt("bestScore1", 100);
-        PlayerPrefs.SetInt("bestScore2", 100);
-        PlayerPrefs.SetInt("bestScore3", 100);
+        PlayerPrefs.SetInt("bestScore1", 1);
+        PlayerPrefs.SetInt("bestScore2", 2);
+        PlayerPrefs.SetInt("bestScore3", 3);
     }
     #endregion
 }
