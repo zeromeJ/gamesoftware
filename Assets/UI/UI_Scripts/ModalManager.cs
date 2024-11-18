@@ -13,17 +13,24 @@ public class ModalManager : MonoBehaviour
         }
     }
 
-    System.Action _OnClickConfrimButton; // 확인 버튼 클릭
-    System.Action _OnClickCancelButton; // 취소 버튼 클릭
+    System.Action _OnClickConfrimButton; // 확인 버튼 클릭 시 메서드
+    System.Action _OnClickCancelButton; // 취소 버튼 클릭 시 메서드 
 
     public GameObject _modal;
     public TMP_Text _modalMsg;
 
     private void Awake()
     {
-        _modal.SetActive(false);
-        DontDestroyOnLoad(this); // 씬 전환 시 파괴되지 않도록 
-        _instance = this;
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        else
+        {
+            _instance = this;
+            _modal.SetActive(false);
+        }
     }
 
     public void Open(string msg, System.Action OnClickConfirmButton, System.Action OnClickCancelButton)
@@ -46,7 +53,6 @@ public class ModalManager : MonoBehaviour
         {
             _OnClickConfrimButton();
         }
-        Close();
     }
 
     public void OnClickCancelButton()
