@@ -14,7 +14,7 @@ public class MainMenuSceneController : MonoBehaviour
     }
     public void LoadStage1Scene()
     {
-        //SceneManager.LoadScene("");
+        SceneManager.LoadScene("Tiger");
     }
     public void LoadStage2Scene()
     {
