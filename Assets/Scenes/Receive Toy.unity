@@ -401,17 +401,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8080180591696223229, guid: eee23b7b0f99f1a46a40fa5a83139354, type: 3}
   m_PrefabInstance: {fileID: 189097205}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &189097207 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8994287856294641565, guid: eee23b7b0f99f1a46a40fa5a83139354, type: 3}
-  m_PrefabInstance: {fileID: 189097205}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b96d9185214781948b1dd193c0edb55a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &289574948
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,7 +2984,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 189097207}
+      - m_Target: {fileID: 2121390846}
         m_TargetAssemblyTypeName: Pause, Assembly-CSharp
         m_MethodName: ResumeClick
         m_Mode: 1
@@ -3226,7 +3215,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1816205386918576065, guid: 63d5e0595605577419c0232cee2b1a09, type: 3}
       propertyPath: orient
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5630876025959103749, guid: 63d5e0595605577419c0232cee2b1a09, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3575,6 +3564,7 @@ GameObject:
   - component: {fileID: 2121390844}
   - component: {fileID: 2121390843}
   - component: {fileID: 2121390845}
+  - component: {fileID: 2121390846}
   m_Layer: 5
   m_Name: ResumePanel
   m_TagString: Untagged
@@ -3654,6 +3644,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ffd1a8f0f75dc488a63e0889a7d991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2121390846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121390840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96d9185214781948b1dd193c0edb55a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resumePanel: {fileID: 2121390840}
+  countDownObject: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
