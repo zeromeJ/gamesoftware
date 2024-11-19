@@ -31,14 +31,7 @@ public class Rope : MonoBehaviour
     void Update()
     {
         animator.SetFloat("Speed", ropeSpeed);
-    }
-
-    private void LateUpdate()
-    {
-
-    }
-
-    
+    }    
 
     //------------------//
     // Custom Functions //

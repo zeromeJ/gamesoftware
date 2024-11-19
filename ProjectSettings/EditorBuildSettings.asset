@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/ScoreBoard.unity
     guid: 39c29fa837a49224595a1fa9e9676037
   - enabled: 1
-    path: Assets/Megu/RabbitScene.unity
+    path: Assets/Scenes/RabbitScene.unity
     guid: 6b2b4150475c2ae4c8b0c88f00c43029
   - enabled: 1
     path: Assets/Scenes/Tiger.unity

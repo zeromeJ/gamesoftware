@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    string rabbitGameKey = "Rabbit";
     public int bestScore { get; set; }
     public int currentScore { get; set; }
 
     [SerializeField] GameObject rope;
     [SerializeField] GameObject player;
     [SerializeField] GameObject gameEndPanel;
+    [SerializeField] ScoreManager scoreManager;
 
     [SerializeField] float ropeSpeed = 0.5f;
     [SerializeField] float minRopeSpeed = 0.5f; // 줄넘기 최소 속도
@@ -20,7 +20,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        bestScore = GetBestScore();
+        if(scoreManager != null)
+        {
+            bestScore = scoreManager.GetBestScore();
+            Debug.Log(bestScore);
+        }
+        else
+        {
+            Debug.Log("Can't find ScoreManager");
+        }
     }
 
     private void Start()
@@ -39,31 +47,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void StuckRope()
+    public void StuckRope()
     {
-        Debug.Log("StuckRope!");
         gameEndPanel.SetActive(true);
-        //isGameActive = false;
 
-        SetBestScore();
+        if (currentScore > scoreManager.GetBestScore())
+        {
+            scoreManager.SetBestScore(currentScore); 
+        }
     }
 
     private void ScoreUp()
     {
         currentScore++;
-    }
-
-    private int GetBestScore()
-    {
-        int best = PlayerPrefs.GetInt(rabbitGameKey);
-        return best;
-    }
-
-    private void SetBestScore()
-    {
-        if (currentScore > GetBestScore())
-        {
-            PlayerPrefs.SetInt(rabbitGameKey, currentScore);
-        }
     }
 }

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpPower = 12.0f;
     [SerializeField] CountDown countdown;
     [SerializeField] bool canJump = true;
-    public GameManager manager;
+    [SerializeField] GameManager manager;
 
     private Rigidbody2D rigidBody;
     private Animator animator;
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.name == "Rope")
         {
-            manager.SendMessage("StuckRope");
+            manager.StuckRope();
             canJump = false;
         }
     }

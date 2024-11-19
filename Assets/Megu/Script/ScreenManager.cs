@@ -5,16 +5,5 @@ using UnityEngine.SceneManagement;
 
 public class ScreenManager : MonoBehaviour
 {
-    ScreenOrientation orient;
-
-    void Start()
-    {
-        orient = Screen.orientation;
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
-    }
-
-    private void OnDestroy()
-    {
-        Screen.orientation = orient;
-    }
+    public ScreenOrientation orient;
 }
