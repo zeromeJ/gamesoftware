@@ -18,6 +18,7 @@ public class ToyManager : MonoBehaviour
     [SerializeField] GameObject[] toys;
     [SerializeField] TextMeshProUGUI curScoreText;
     [SerializeField] TextMeshProUGUI bestScoreText;
+    [SerializeField] ScoreManager scoreManager;
 
     public int curScore;
 
@@ -29,14 +30,14 @@ public class ToyManager : MonoBehaviour
     void Update()
     {
         curScoreText.text = "Score : " + curScore;
-        if(curScore > PlayerPrefs.GetInt("RT_BestScore", 0)){
-            PlayerPrefs.SetInt("RT_BestScore", curScore);
+        if(curScore > scoreManager.GetBestScore()){
+            scoreManager.SetBestScore(curScore);
         }
-        bestScoreText.text = "Best Score : " + PlayerPrefs.GetInt("RT_BestScore", 0);
+        bestScoreText.text = "Best Score : " + scoreManager.GetBestScore();
     }
 
     IEnumerator CreateToy(){
-        while(true){ //gameover를 플래그로 해야될지도?
+        while(true){
             int ran = Random.Range(0, 3);
             Vector3 pos = Camera.main.ViewportToWorldPoint(new Vector3(UnityEngine.Random.Range(0.05f, 0.95f), 1.1f, 10));
             pos.z = 0.0f;
