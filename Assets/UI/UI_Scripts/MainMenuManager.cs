@@ -14,6 +14,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] TMP_Text nicknameText;
     [SerializeField] TMP_InputField nicknameInputField;
     [SerializeField] TMP_Text nicknameWarningText;
+    [SerializeField] GameObject profileModalPannel;
+    [SerializeField] GameObject stage1StartModalPannel;
+    [SerializeField] GameObject stage2StartModalPannel;
+    [SerializeField] GameObject stage3StartModalPannel;
 
     string _nickname;
     int _characterID;
@@ -35,10 +39,12 @@ public class MainMenuManager : MonoBehaviour
         UpdateProfileModal();
     }
 
+    // 프로필 수정하기 모달 
     public void OnClickOpenProfile()
     {
+        Debug.Log("profile click");
         nicknameWarningText.enabled = false;
-        ModalManager.Instance.Open("My Profile",
+        ModalManager.Instance.Open(profileModalPannel,
             OnClickConfirmButton: () =>
             {
                 ProfileConfirmButton();
@@ -49,7 +55,7 @@ public class MainMenuManager : MonoBehaviour
         );
     }
     
-    // 확인 버튼 클릭 
+    // 프로필 수정 확인 버튼 클릭 
     void ProfileConfirmButton()
     {
         
@@ -99,6 +105,62 @@ public class MainMenuManager : MonoBehaviour
     {
         UpdateNicknameModal();
         UpdateCharacterIDModal();
+    }
+
+    // stage1~3 버튼 클릭 
+    public void OnClickOpenStage1()
+    {
+        ModalManager.Instance.Open(stage1StartModalPannel,
+            OnClickConfirmButton: () =>
+            {
+                ModalManager.Instance.Close();
+                Stage1StartButton();
+            }, OnClickCancelButton: () =>
+            {
+                // close()
+            }
+        );
+    }
+    void Stage1StartButton()
+    {
+        SceneManager.LoadScene("Tiger");
+    }
+
+    public void OnClickOpenStage2()
+    {
+        ModalManager.Instance.Open(stage2StartModalPannel,
+            OnClickConfirmButton: () =>
+            {
+                ModalManager.Instance.Close();
+                Stage2StartButton();
+            }, OnClickCancelButton: () =>
+            {
+                // close()
+            }
+        );
+    }
+
+    void Stage2StartButton()
+    {
+        SceneManager.LoadScene("RabbitScene");
+    }
+    public void OnClickOpenStage3()
+    {
+        ModalManager.Instance.Open(stage3StartModalPannel,
+            OnClickConfirmButton: () =>
+            {
+                ModalManager.Instance.Close();
+                Stage3StartButton();
+            }, OnClickCancelButton: () =>
+            {
+                // close()
+            }
+        );
+    }
+
+    void Stage3StartButton()
+    {
+        SceneManager.LoadScene("Receive Toy");
     }
 
     #region 캐릭터 선택 버튼 처리 

@@ -16,8 +16,7 @@ public class ModalManager : MonoBehaviour
     System.Action _OnClickConfrimButton; // 확인 버튼 클릭 시 메서드
     System.Action _OnClickCancelButton; // 취소 버튼 클릭 시 메서드 
 
-    public GameObject _modal;
-    public TMP_Text _modalMsg;
+    GameObject _modal;
 
     private void Awake()
     {
@@ -29,14 +28,15 @@ public class ModalManager : MonoBehaviour
         else
         {
             _instance = this;
-            _modal.SetActive(false);
         }
     }
 
-    public void Open(string msg, System.Action OnClickConfirmButton, System.Action OnClickCancelButton)
+    public void Open(GameObject pannel, System.Action OnClickConfirmButton, System.Action OnClickCancelButton)
     {
+        Debug.Log("Open");
+        _modal = pannel;
+        Debug.Log(_modal == null);
         _modal.SetActive(true);
-        _modalMsg.text = msg;
         _OnClickConfrimButton = OnClickConfirmButton;
         _OnClickCancelButton = OnClickCancelButton;
     }
@@ -62,6 +62,7 @@ public class ModalManager : MonoBehaviour
             _OnClickCancelButton();
         }
         Close();
+        _modal = null;
     }
 
 }
