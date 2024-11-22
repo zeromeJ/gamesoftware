@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51f8452a5717394a8cfcf0bb599bf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
   key: Receive Toy
 --- !u!114 &328182672
 MonoBehaviour:
@@ -664,6 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51f8452a5717394a8cfcf0bb599bf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
   key: RabbitScene
 --- !u!1 &671946438
 GameObject:
@@ -676,6 +678,7 @@ GameObject:
   - component: {fileID: 671946439}
   - component: {fileID: 671946441}
   - component: {fileID: 671946440}
+  - component: {fileID: 671946442}
   m_Layer: 5
   m_Name: Stage3Text
   m_TagString: Untagged
@@ -799,6 +802,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671946438}
   m_CullTransparentMesh: 1
+--- !u!114 &671946442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671946438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991a82e16aed1084fb599c9b48088cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: Kitty
 --- !u!1 &675266597
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +875,7 @@ GameObject:
   - component: {fileID: 874273332}
   - component: {fileID: 874273334}
   - component: {fileID: 874273333}
+  - component: {fileID: 874273335}
   m_Layer: 5
   m_Name: Stage2Text
   m_TagString: Untagged
@@ -982,6 +999,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874273331}
   m_CullTransparentMesh: 1
+--- !u!114 &874273335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874273331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991a82e16aed1084fb599c9b48088cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: Rabbit
 --- !u!1 &906287170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1166,7 @@ GameObject:
   - component: {fileID: 961149354}
   - component: {fileID: 961149356}
   - component: {fileID: 961149355}
+  - component: {fileID: 961149357}
   m_Layer: 5
   m_Name: Stage1Text
   m_TagString: Untagged
@@ -1259,6 +1290,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961149353}
   m_CullTransparentMesh: 1
+--- !u!114 &961149357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961149353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991a82e16aed1084fb599c9b48088cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: Tiger
 --- !u!1 &1077670183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51f8452a5717394a8cfcf0bb599bf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
   key: Tiger
 --- !u!1 &1225341856
 GameObject:

@@ -5,5 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ScreenManager : MonoBehaviour
 {
-    public ScreenOrientation orient;
+    [SerializeField] ScreenOrientation orient;
+
+    private void Awake()
+    {
+        Screen.orientation = orient;
+    }
 }
