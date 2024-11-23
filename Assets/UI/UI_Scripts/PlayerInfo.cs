@@ -55,6 +55,7 @@ public class PlayerInfo : MonoBehaviour
         SaveNotLoggedIn();
         PlayerPrefs.DeleteKey(CharacterIDKey);
         PlayerPrefs.DeleteKey(NicknameKey);
+
     }
 
     // Get/Set ¸Þ¼Òµå 
