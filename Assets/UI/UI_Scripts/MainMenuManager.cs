@@ -32,7 +32,6 @@ public class MainMenuManager : MonoBehaviour
     {
         if (!playerInfo.LoadHasLoggedIn())
         {
-            Debug.Log("Open");
             OnClickOpenProfile();
             playerInfo.SaveLoggedIn();
         }
@@ -42,8 +41,9 @@ public class MainMenuManager : MonoBehaviour
     // 프로필 수정하기 모달 
     public void OnClickOpenProfile()
     {
-        Debug.Log("profile click");
         nicknameWarningText.enabled = false;
+        nicknameInputField.text = "";
+        characterImage.sprite = characterDatas[playerInfo.CharacterID].CharacterSprite;
         ModalManager.Instance.Open(profileModalPannel,
             OnClickConfirmButton: () =>
             {
@@ -72,7 +72,8 @@ public class MainMenuManager : MonoBehaviour
     
     bool CheckValidNickname()
     {
-        if (nicknameInputField.text.Length == 0)
+        if (nicknameInputField.text.Length == 0 || 
+            nicknameInputField.text.Length >= 5)
         {
             nicknameWarningText.enabled = true;
             return false;
