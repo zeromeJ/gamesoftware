@@ -494,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51f8452a5717394a8cfcf0bb599bf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 1077670184}
   key: Receive Toy
 --- !u!114 &328182672
 MonoBehaviour:
@@ -739,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51f8452a5717394a8cfcf0bb599bf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 1077670184}
   key: RabbitScene
 --- !u!1 &375935526
 GameObject:
@@ -1742,6 +1744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51f8452a5717394a8cfcf0bb599bf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 1077670184}
   key: Tiger
 --- !u!1 &1225341856
 GameObject:

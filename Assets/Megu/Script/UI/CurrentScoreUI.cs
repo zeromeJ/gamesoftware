@@ -11,11 +11,11 @@ public class CurrentScoreUI : MonoBehaviour
     private void Awake()
     {
         CurScoreText = GetComponent<TextMeshProUGUI>();
-        CurScoreText.text = "Current Score : 0";
+        CurScoreText.text = "현재 점수 : 0";
     }
 
     private void Update()
     {
-        CurScoreText.text = "Current Score : " + manager.currentScore;
+        CurScoreText.text = "현재 점수 : " + manager.currentScore;
     }
 }

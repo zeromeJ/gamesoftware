@@ -15,6 +15,14 @@ public class BestScoreUI : MonoBehaviour
 
     private void Start()
     {
-        bestScoreText.text = "Best Score : " + manager.bestScore;
+        bestScoreText.text = "최고 점수 : " + manager.bestScore;
+    }
+
+    private void Update()
+    {
+        if(manager.currentScore > manager.bestScore)
+        {
+            bestScoreText.text = "최고 점수 : " + manager.currentScore;
+        }
     }
 }

@@ -14,10 +14,6 @@ public class GameEndPanel : MonoBehaviour
 
     public void QuitClick()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        SceneManager.LoadScene("MainMenu");
     }
 }
