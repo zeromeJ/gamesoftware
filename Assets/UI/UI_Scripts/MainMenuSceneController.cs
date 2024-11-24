@@ -3,11 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuSceneController : MonoBehaviour
 {
-
-    public void LoadMyInfoScene()
-    {
-        SceneManager.LoadScene("MyInfo");
-    }
     public void LoadScoreBoardScene()
     {
         SceneManager.LoadScene("ScoreBoard");
