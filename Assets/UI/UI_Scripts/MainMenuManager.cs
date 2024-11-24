@@ -26,6 +26,7 @@ public class MainMenuManager : MonoBehaviour
     {
         CheckHasLoggedIn();
         characterImage.sprite = characterDatas[_characterID].CharacterSprite;
+        WebGLInput.captureAllKeyboardInput = false;
     }
 
     void CheckHasLoggedIn()
@@ -38,7 +39,7 @@ public class MainMenuManager : MonoBehaviour
         UpdateProfileModal();
     }
 
-    // 프로필 수정하기 모달 
+    // ?????? ???????? ???? 
     public void OnClickOpenProfile()
     {
         nicknameWarningText.enabled = false;
@@ -55,7 +56,7 @@ public class MainMenuManager : MonoBehaviour
         );
     }
     
-    // 프로필 수정 확인 버튼 클릭 
+    // ?????? ???? ???? ???? ???? 
     void ProfileConfirmButton()
     {
         
@@ -81,7 +82,7 @@ public class MainMenuManager : MonoBehaviour
         return true;
     }
 
-    // 모달에 표시될 Player Info 갱신 
+    // ?????? ?????? Player Info ???? 
     void UpdateNicknameModal()
     {
         _nickname = playerInfo.Nickname;
@@ -108,7 +109,7 @@ public class MainMenuManager : MonoBehaviour
         UpdateCharacterIDModal();
     }
 
-    // stage1~3 버튼 클릭 
+    // stage1~3 ???? ???? 
     public void OnClickOpenStage1()
     {
         ModalManager.Instance.Open(stage1StartModalPannel,
@@ -164,7 +165,7 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("Receive Toy");
     }
 
-    #region 캐릭터 선택 버튼 처리 
+    #region ?????? ???? ???? ???? 
     public void Character0Button()
     {
         _characterID = 0;
