@@ -60,7 +60,7 @@ public class CountDown : MonoBehaviour
             curCount -= 1;
 
             if(curCount <= 0){
-                text.text = "Game Start!";
+                text.text = "게임 시작!";
                 yield return new WaitForSecondsRealtime(1f);
                 countdownDone = true;
                 ResetTimeScale();

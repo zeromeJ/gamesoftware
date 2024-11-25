@@ -12,7 +12,7 @@ public class PlayerInfo : MonoBehaviour
     private int characterID;
     private string nickname;
 
-    // Ã¹ ¹øÂ° Á¢¼ÓÀÎÁö È®ÀÎ 
+    // Ã¹ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ 
     public void SaveLoggedIn()
     {
         PlayerPrefs.SetInt(HasLoggedIn, 1);
@@ -27,7 +27,7 @@ public class PlayerInfo : MonoBehaviour
         return (_hasLoggedIn > 0 ? true : false);
     }
 
-    // ¼±ÅÃÇÑ Ä³¸¯ÅÍ °ü¸® 
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
     void SaveCharacterChoice(int characterID)
     {
         PlayerPrefs.SetInt(CharacterIDKey, characterID);
@@ -38,7 +38,7 @@ public class PlayerInfo : MonoBehaviour
         return PlayerPrefs.GetInt(CharacterIDKey, 0);
     }
 
-    // ´Ð³×ÀÓ °ü¸® 
+    // ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
     void SavePlayerNickname(string nickname)
     {
         PlayerPrefs.SetString(NicknameKey, nickname);
@@ -49,16 +49,18 @@ public class PlayerInfo : MonoBehaviour
         return PlayerPrefs.GetString(NicknameKey, "");
     }
 
-    // ÇÃ·¹ÀÌ¾î Á¤º¸ ÃÊ±âÈ­ 
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 
     public void ClearPlayerData()
     {
         SaveNotLoggedIn();
         PlayerPrefs.DeleteKey(CharacterIDKey);
         PlayerPrefs.DeleteKey(NicknameKey);
-
+        PlayerPrefs.DeleteKey("Tiger");
+        PlayerPrefs.DeleteKey("RabbitScene");
+        PlayerPrefs.DeleteKey("Receive Toy");
     }
 
-    // Get/Set ¸Þ¼Òµå 
+    // Get/Set ï¿½Þ¼Òµï¿½ 
     public int CharacterID
     {
         get
