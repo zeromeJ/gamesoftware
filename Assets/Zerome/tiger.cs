@@ -5,74 +5,94 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
-
-public class tiger : MonoBehaviour
+public class TigerGame : MonoBehaviour
 {
+    public int tigerBestScore { get; set; }
+    public int tigerCurrentScore { get; set; }
 
     [SerializeField] Timer timer;
     [SerializeField] CountDown countdown;
+    [SerializeField] TextMeshProUGUI bestScoreText;
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI livesText;
-    [SerializeField] GameObject restartPanel;
-    //public TMPro.TextMeshProUGUI livesText;
+    [SerializeField] GameObject gameEndPanel;
+    [SerializeField] ScoreManager scoreManager;
 
-    //public TMPro.TextMeshProUGUI scoreText;
+    public Button[] cards; // 3개의 카드를 버튼으로 설정
 
-    public Button[] cards;       // 3개의 카드를 버튼으로 설정
+    [SerializeField] private RectTransform heartContainer; // 하트 이미지를 표시할 UI 컨테이너
+    [SerializeField] Sprite fullHeartSprite; // 하트가 채워진 이미지
+    [SerializeField] Sprite emptyHeartSprite; // 하트가 비어있는 이미지
+    private List<Image> heartImages = new List<Image>(); // 각 하트 UI 관리
 
+    [SerializeField] Sprite[] tigerParts; // 호랑이 귀, 꼬리, 손 이미지 배열
+    [SerializeField] Sprite[] squirrelParts; // 다람쥐 귀, 꼬리, 손 이미지 배열
+    [SerializeField] Sprite[] dogParts; // 강아지 귀, 꼬리, 손 이미지 배열
 
-    private int score = 0;       // 초기 점수
-    private int lives = 3;       // 초기 목숨
-    private int tigerIndex = -1;  // 위치 인덱스
+    private int score = 0; // 초기 점수
+    private int lives = 3; // 초기 목숨
+    private int tigerIndex = -1; // 호랑이 위치 인덱스
 
     void Start()
     {
+        if (scoreManager != null)
+        {
+            tigerBestScore = scoreManager.GetBestScore();
+        }
+        else
+        {
+            Debug.LogError("ScoreManager를 찾을 수 없습니다.");
+        }
+
+        InitializeHearts();
         UpdateUI();
-        //StartCoroutine(ShowTiger());
         AssignRandom();
     }
 
-    void AssignRandom()
+
+    // 하트 UI 초기화
+    void InitializeHearts()
     {
+        // 기존 하트 제거
+        foreach (Transform child in heartContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        heartImages.Clear(); // 리스트도 초기화
 
-        int[] indices = new int[] { 0, 1, 2 }.OrderBy(x => Random.value).ToArray();
+        // lives 개수에 따라 하트 UI를 생성
+        for (int i = 0; i < lives; i++)
+        {
+            GameObject heartObject = new GameObject("Heart" + i);
+            heartObject.transform.SetParent(heartContainer); // heartContainer에 추가
+            heartObject.transform.localScale = Vector3.one; // 스케일 초기화
 
-
-        tigerIndex = indices[0];
-        cards[tigerIndex].GetComponent<Image>().color = Color.red;     // 빨강 카드 == tiger
-        cards[indices[1]].GetComponent<Image>().color = Color.green;     // 초록 카드
-        cards[indices[2]].GetComponent<Image>().color = Color.black;     // 검정 카드
+            Image heartImage = heartObject.AddComponent<Image>();
+            heartImage.sprite = fullHeartSprite; // 초기 상태는 채워진 하트
+            heartImages.Add(heartImage);
+        }
     }
 
 
-    //// 위치를 랜덤하게 설정하는 코루틴
-    //IEnumerator ShowTiger()
-    //{
 
-    //    while (lives > 0)
-    //    {
-    //        // 이전 빨간색 카드 초기화
-    //        if (tigerIndex >= 0)
-    //        {
-    //            cards[tigerIndex].GetComponent<Image>().color = Color.white;
-    //        }
+    void AssignRandom()
+    {
+        // 손/꼬리/귀 중 랜덤 선택
+        int selectedPartIndex = Random.Range(0, 3); // 0 = 귀, 1 = 꼬리, 2 = 손
+        Debug.Log("Selected part index: " + selectedPartIndex);
 
-    //        // 카드 색상을 랜덤하게 배정 (빨강, 주황, 초록)
-    //        int randomIndex = Random.Range(0, cards.Length);
-    //        tigerIndex = randomIndex;
+        // 동물 배치를 랜덤화
+        int[] indices = new int[] { 0, 1, 2 }.OrderBy(x => Random.value).ToArray();
 
-    //        // 색상 설정
-    //        for (int i = 0; i < cards.Length; i++)
-    //        {
-    //            if (i == tigerIndex)
-    //                cards[i].GetComponent<Image>().color = Color.red;     // 빨강 카드
-    //            else
-    //                cards[i].GetComponent<Image>().color = i % 2 == 0 ? Color.green : Color.black;  // 초록, 검( 카드
-    //        }
+        // 각 버튼에 랜덤하게 배치된 동물의 선택된 파트를 설정
+        tigerIndex = indices[0]; // 첫 번째가 호랑이
+        cards[tigerIndex].GetComponent<Image>().sprite = tigerParts[selectedPartIndex]; // 호랑이의 선택된 파트
 
-    //        yield return new WaitForSeconds(1.0f); // 1초 동안 색상 유지 후 다시 랜덤 배정
-    //    }
-    //}
+        int squirrelIndex = indices[1]; // 두 번째가 다람쥐
+        cards[squirrelIndex].GetComponent<Image>().sprite = squirrelParts[selectedPartIndex]; // 다람쥐의 선택된 파트
+
+        int dogIndex = indices[2]; // 세 번째가 강아지
+        cards[dogIndex].GetComponent<Image>().sprite = dogParts[selectedPartIndex]; // 강아지의 선택된 파트
+    }
 
     // 카드 클릭 시 점수 및 목숨 업데이트
     public void OnCardClick(int index)
@@ -80,13 +100,14 @@ public class tiger : MonoBehaviour
         if (index == tigerIndex)
         {
             score += 10;
-            //StartCoroutine(ShowTiger());
             AssignRandom();
         }
         else
         {
             lives -= 1;
-            Debug.Log("Lives remaining: " + lives);
+            UpdateLivesUI();
+            AssignRandom();
+
             if (lives <= 0)
             {
                 GameOver();
@@ -97,14 +118,12 @@ public class tiger : MonoBehaviour
         UpdateUI();
     }
 
-    void Shuffle(int[] array)
+    // 하트 이미지를 업데이트
+    void UpdateLivesUI()
     {
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 0; i < heartImages.Count; i++)
         {
-            int rnd = Random.Range(i, array.Length);
-            int temp = array[i];
-            array[i] = array[rnd];
-            array[rnd] = temp;
+            heartImages[i].sprite = i < lives ? fullHeartSprite : emptyHeartSprite;
         }
     }
 
@@ -112,15 +131,18 @@ public class tiger : MonoBehaviour
     void UpdateUI()
     {
         scoreText.text = "Score: " + score;
-        livesText.text = "Lives: " + lives;
     }
 
     // 게임 종료 함수
     void GameOver()
     {
         StopAllCoroutines();
-        livesText.text = "Game Over";
-        Debug.Log("Game Over! Final Score: " + score); // 게임 종료 시 콘솔 메시지 출력
-        restartPanel.SetActive(true);
+        Debug.Log("Game Over! Final Score: " + score);
+        gameEndPanel.SetActive(true);
+
+        if (tigerCurrentScore > scoreManager.GetBestScore())
+        {
+            scoreManager.SetBestScore(tigerCurrentScore);
+        }
     }
 }
