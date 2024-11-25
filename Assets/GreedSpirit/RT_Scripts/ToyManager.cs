@@ -29,11 +29,11 @@ public class ToyManager : MonoBehaviour
 
     void Update()
     {
-        curScoreText.text = "Score : " + curScore;
+        curScoreText.text = "현재 점수 : " + curScore;
         if(curScore > scoreManager.GetBestScore()){
             scoreManager.SetBestScore(curScore);
         }
-        bestScoreText.text = "Best Score : " + scoreManager.GetBestScore();
+        bestScoreText.text = "최고 점수 : " + scoreManager.GetBestScore();
     }
 
     IEnumerator CreateToy(){
