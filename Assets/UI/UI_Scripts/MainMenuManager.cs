@@ -26,7 +26,9 @@ public class MainMenuManager : MonoBehaviour
     {
         CheckHasLoggedIn();
         characterImage.sprite = characterDatas[_characterID].CharacterSprite;
-        WebGLInput.captureAllKeyboardInput = false;
+#if UNITY_WEBGL && !UNITY_EDITOR
+    WebGLInput.captureAllKeyboardInput = false;
+#endif
     }
 
     void CheckHasLoggedIn()
@@ -116,16 +118,11 @@ public class MainMenuManager : MonoBehaviour
             OnClickConfirmButton: () =>
             {
                 ModalManager.Instance.Close();
-                Stage1StartButton();
             }, OnClickCancelButton: () =>
             {
                 // close()
             }
         );
-    }
-    void Stage1StartButton()
-    {
-        SceneManager.LoadScene("Tiger");
     }
 
     public void OnClickOpenStage2()
@@ -134,7 +131,6 @@ public class MainMenuManager : MonoBehaviour
             OnClickConfirmButton: () =>
             {
                 ModalManager.Instance.Close();
-                Stage2StartButton();
             }, OnClickCancelButton: () =>
             {
                 // close()
@@ -142,27 +138,17 @@ public class MainMenuManager : MonoBehaviour
         );
     }
 
-    void Stage2StartButton()
-    {
-        SceneManager.LoadScene("RabbitScene");
-    }
     public void OnClickOpenStage3()
     {
         ModalManager.Instance.Open(stage3StartModalPannel,
             OnClickConfirmButton: () =>
             {
                 ModalManager.Instance.Close();
-                Stage3StartButton();
             }, OnClickCancelButton: () =>
             {
                 // close()
             }
         );
-    }
-
-    void Stage3StartButton()
-    {
-        SceneManager.LoadScene("Receive Toy");
     }
 
     #region ?????? ???? ???? ???? 
