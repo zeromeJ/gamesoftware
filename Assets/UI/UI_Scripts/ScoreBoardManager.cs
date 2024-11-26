@@ -9,7 +9,6 @@ public class ScoreBoardManager : MonoBehaviour
     [SerializeField] List<CharacterData> characterDatas;
     [SerializeField] PlayerInfo playerInfo;
 
-    [SerializeField] TextMeshProUGUI[] bestScoreTexts;
     [SerializeField] TMP_Text nicknameText;
     [SerializeField] Image characterImage;
 
@@ -37,10 +36,9 @@ public class ScoreBoardManager : MonoBehaviour
 
     private void LoadBestScores()
     {
-        for (int i = 0; i < bestScoreTexts.Length; i++)
+        for (int i = 0; i < 3; i++)
         {
             int bestScore = PlayerPrefs.GetInt($"bestScore{i + 1}", 0);
-            bestScoreTexts[i].text = $"{bestScore}";
         }
     }
 
