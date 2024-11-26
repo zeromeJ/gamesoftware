@@ -33,14 +33,14 @@ public class LoadingSceneManager : MonoBehaviour
         while (!op.isDone)
         {
             yield return null;
-            if (op.progress < 0.8f)
+            if (op.progress < 0.3f)
             {
                 progressBarSlider.value = op.progress;
             }
             else
             {
                 timer += Time.unscaledDeltaTime;
-                progressBarSlider.value = Mathf.Lerp(0.8f, 1f, timer);
+                progressBarSlider.value = Mathf.Lerp(0.3f, 1f, timer);
                 if (progressBarSlider.value >= 1f)
                 {
                     op.allowSceneActivation = true;
