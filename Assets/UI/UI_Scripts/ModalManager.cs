@@ -33,9 +33,7 @@ public class ModalManager : MonoBehaviour
 
     public void Open(GameObject pannel, System.Action OnClickConfirmButton, System.Action OnClickCancelButton)
     {
-        Debug.Log("Open");
         _modal = pannel;
-        Debug.Log(_modal == null);
         _modal.SetActive(true);
         _OnClickConfrimButton = OnClickConfirmButton;
         _OnClickCancelButton = OnClickCancelButton;

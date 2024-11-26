@@ -18,6 +18,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject stage1StartModalPannel;
     [SerializeField] GameObject stage2StartModalPannel;
     [SerializeField] GameObject stage3StartModalPannel;
+    [SerializeField] AudioSource clickEffect;
 
     string _nickname;
     int _characterID;
@@ -26,7 +27,9 @@ public class MainMenuManager : MonoBehaviour
     {
         CheckHasLoggedIn();
         characterImage.sprite = characterDatas[_characterID].CharacterSprite;
-        WebGLInput.captureAllKeyboardInput = false;
+#if UNITY_WEBGL && !UNITY_EDITOR
+    WebGLInput.mobileKeyboardSupport = true;
+#endif
     }
 
     void CheckHasLoggedIn()
@@ -74,7 +77,7 @@ public class MainMenuManager : MonoBehaviour
     bool CheckValidNickname()
     {
         if (nicknameInputField.text.Length == 0 || 
-            nicknameInputField.text.Length >= 5)
+            nicknameInputField.text.Length > 5)
         {
             nicknameWarningText.enabled = true;
             return false;
@@ -116,16 +119,11 @@ public class MainMenuManager : MonoBehaviour
             OnClickConfirmButton: () =>
             {
                 ModalManager.Instance.Close();
-                Stage1StartButton();
             }, OnClickCancelButton: () =>
             {
                 // close()
             }
         );
-    }
-    void Stage1StartButton()
-    {
-        SceneManager.LoadScene("Tiger");
     }
 
     public void OnClickOpenStage2()
@@ -134,7 +132,6 @@ public class MainMenuManager : MonoBehaviour
             OnClickConfirmButton: () =>
             {
                 ModalManager.Instance.Close();
-                Stage2StartButton();
             }, OnClickCancelButton: () =>
             {
                 // close()
@@ -142,17 +139,12 @@ public class MainMenuManager : MonoBehaviour
         );
     }
 
-    void Stage2StartButton()
-    {
-        SceneManager.LoadScene("RabbitScene");
-    }
     public void OnClickOpenStage3()
     {
         ModalManager.Instance.Open(stage3StartModalPannel,
             OnClickConfirmButton: () =>
             {
                 ModalManager.Instance.Close();
-                Stage3StartButton();
             }, OnClickCancelButton: () =>
             {
                 // close()
@@ -160,9 +152,9 @@ public class MainMenuManager : MonoBehaviour
         );
     }
 
-    void Stage3StartButton()
+    public void ClickEffectPlay()
     {
-        SceneManager.LoadScene("Receive Toy");
+        clickEffect.Play();
     }
 
     #region ?????? ???? ???? ???? 

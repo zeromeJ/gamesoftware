@@ -9,20 +9,25 @@ public class MainMenuSceneController : MonoBehaviour
     }
     public void LoadStage1Scene()
     {
-        SceneManager.LoadScene("Tiger");
+        LoadingSceneManager.sceneName = "Tiger";
+        SceneManager.LoadScene("Loading");
     }
     public void LoadStage2Scene()
     {
-        SceneManager.LoadScene("RabbitScene");
+        LoadingSceneManager.sceneName = "RabbitScene";
+        SceneManager.LoadScene("Loading");
     }
     public void LoadStage3Scene()
     {
-        SceneManager.LoadScene("Receive Toy");
+        LoadingSceneManager.sceneName = "Receive Toy";
+        SceneManager.LoadScene("Loading");
     }
     public void ExitGame()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBGL
+        SceneManager.LoadScene("GameStart");
 #else
         Application.Quit();
 #endif
