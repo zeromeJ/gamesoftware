@@ -18,6 +18,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject stage1StartModalPannel;
     [SerializeField] GameObject stage2StartModalPannel;
     [SerializeField] GameObject stage3StartModalPannel;
+    [SerializeField] AudioSource clickEffect;
 
     string _nickname;
     int _characterID;
@@ -76,7 +77,7 @@ public class MainMenuManager : MonoBehaviour
     bool CheckValidNickname()
     {
         if (nicknameInputField.text.Length == 0 || 
-            nicknameInputField.text.Length >= 5)
+            nicknameInputField.text.Length > 5)
         {
             nicknameWarningText.enabled = true;
             return false;
@@ -149,6 +150,11 @@ public class MainMenuManager : MonoBehaviour
                 // close()
             }
         );
+    }
+
+    public void ClickEffectPlay()
+    {
+        clickEffect.Play();
     }
 
     #region ?????? ???? ???? ???? 

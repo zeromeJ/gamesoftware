@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterID: 1
   characterName: Character1
-  characterSprite: {fileID: 21300000, guid: 475ce3bd59ba6794a8132b328c47d479, type: 3}
+  characterSprite: {fileID: 21300000, guid: 93d57f9c17c0a3f4f808cf18311c6271, type: 3}
