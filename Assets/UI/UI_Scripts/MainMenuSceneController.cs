@@ -26,6 +26,8 @@ public class MainMenuSceneController : MonoBehaviour
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBGL
+        SceneManager.LoadScene("GameStart");
 #else
         Application.Quit();
 #endif

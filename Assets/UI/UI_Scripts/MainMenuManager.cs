@@ -28,7 +28,7 @@ public class MainMenuManager : MonoBehaviour
         CheckHasLoggedIn();
         characterImage.sprite = characterDatas[_characterID].CharacterSprite;
 #if UNITY_WEBGL && !UNITY_EDITOR
-    WebGLInput.captureAllKeyboardInput = false;
+    WebGLInput.mobileKeyboardSupport = true;
 #endif
     }
 
