@@ -41,6 +41,11 @@ public class ScoreBoardManager : MonoBehaviour
             int bestScore = PlayerPrefs.GetInt($"bestScore{i + 1}", 0);
         }
     }
+    public AudioSource clickSE;
+    public void ClickSoundEffect()
+    {
+        clickSE.Play();
+    }
 
     #region Test_Code
     private void Test_SaveBestScores()
