@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Receive Toy.unity
     guid: 5da0c29f17f23d1478d610ac17827daf
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 565c66c9964773c4dbdea089e241c479
   m_configObjects: {}
