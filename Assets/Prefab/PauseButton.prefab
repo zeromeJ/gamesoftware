@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resumePanel: {fileID: 0}
-  fadeImage: {fileID: 0}
+  countDownObject: {fileID: 0}
 --- !u!1 &6421274872160579457
 GameObject:
   m_ObjectHideFlags: 0
