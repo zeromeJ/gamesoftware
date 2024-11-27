@@ -22,16 +22,19 @@ public class TigerGame : MonoBehaviour
 
 
     public Button[] cards; // 9개의 버튼
+
     [SerializeField] private RectTransform heartContainer; // 하트 컨테이너
     [SerializeField] Sprite fullHeartSprite; // 채워진 하트 이미지
     [SerializeField] Sprite emptyHeartSprite; // 비어있는 하트 이미지
+    private List<Image> heartImages = new List<Image>();
+    private int lives = 3; // 라이프 max
 
+    // 이미
     [SerializeField] Sprite tigerSprite; // 호랑이 이미지
     [SerializeField] Sprite squirrelSprite; // 다람쥐 이미지
     [SerializeField] Sprite dogSprite; // 강아지 이미지
 
-    private List<Image> heartImages = new List<Image>();
-    private int lives = 3;
+
 
     private float spawnInterval = 3f; // 초기 주기
     private float originalInterval = 3f; // 원래의 주기
@@ -40,20 +43,48 @@ public class TigerGame : MonoBehaviour
 
     private Coroutine spawnCoroutine;
 
+    [SerializeField] private Sprite backgroundSprite;
+    private GameObject backgroundObject;
+
     void Start()
     {
+        // 배경 오브젝트 생성
+        backgroundObject = new GameObject("Background");
+        SpriteRenderer spriteRenderer = backgroundObject.AddComponent<SpriteRenderer>();
+        spriteRenderer.sprite = backgroundSprite; // 배경 이미지 설정
+
+        // 배경 비율 조정
+        FitBackgroundToScreen(spriteRenderer);
+
         if (scoreManager != null)
         {
             tigerBestScore = scoreManager.GetBestScore();
-            bestScoreText.text = "Best Score: " + tigerBestScore;
+            bestScoreText.text = "최고 점수 : " + tigerBestScore;
         }
         else
         {
             Debug.LogError("ScoreManager를 찾을 수 없습니다.");
         }
 
+       
+
         InitializeHearts();
         StartGame();
+    }
+
+    void FitBackgroundToScreen(SpriteRenderer spriteRenderer)
+    {
+        Camera mainCamera = Camera.main;
+
+        // 카메라의 크기에 맞게 배경 크기 조정
+        float worldScreenHeight = mainCamera.orthographicSize * 2.0f;
+        float worldScreenWidth = worldScreenHeight * Screen.width / Screen.height;
+
+        Vector2 spriteSize = spriteRenderer.sprite.bounds.size;
+        backgroundObject.transform.localScale = new Vector3(
+            worldScreenWidth / spriteSize.x,
+            worldScreenHeight / spriteSize.y,
+            1);
     }
 
     //void Update()
@@ -84,6 +115,7 @@ public class TigerGame : MonoBehaviour
             Image heartImage = heartObject.AddComponent<Image>();
             heartImage.sprite = fullHeartSprite;
             heartImages.Add(heartImage);
+            heartImages[i].preserveAspect = true; // 비율 유지 설정
         }
     }
 
@@ -199,6 +231,7 @@ public class TigerGame : MonoBehaviour
         for (int i = 0; i < heartImages.Count; i++)
         {
             heartImages[i].sprite = i < lives ? fullHeartSprite : emptyHeartSprite;
+            heartImages[i].preserveAspect = true; // 비율 유지 설정
         }
     }
 
@@ -206,7 +239,7 @@ public class TigerGame : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + tigerCurrentScore; // UI에 점수 반영
+            scoreText.text = "점수 : " + tigerCurrentScore; // UI에 점수 반영
         }
         else
         {
@@ -226,6 +259,15 @@ public class TigerGame : MonoBehaviour
         if (tigerCurrentScore > scoreManager.GetBestScore())
         {
             scoreManager.SetBestScore(tigerCurrentScore);
+        }
+    }
+
+    // 버튼 활성화/비활성화 함수
+    void SetButtonsInteractable(bool interactable)
+    {
+        foreach (var button in cards)
+        {
+            button.interactable = interactable;
         }
     }
 }
