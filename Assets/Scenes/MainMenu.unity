@@ -3028,8 +3028,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3064,7 +3064,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -268.21112, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.9935761, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3092,10 +3092,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1650039354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.22500001, y: 0.3702969}
-  m_AnchorMax: {x: 0.8125001, y: 0.40370315}
-  m_AnchoredPosition: {x: -135, y: 0.5}
-  m_SizeDelta: {x: -270, y: 2}
+  m_AnchorMin: {x: 0.15750001, y: 0.36889064}
+  m_AnchorMax: {x: 0.8525001, y: 0.40370315}
+  m_AnchoredPosition: {x: -4.90329, y: 0.000015258789}
+  m_SizeDelta: {x: -9.8066, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &724259041
 GameObject:
