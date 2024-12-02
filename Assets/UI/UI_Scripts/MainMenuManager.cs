@@ -37,12 +37,12 @@ public class MainMenuManager : MonoBehaviour
         if (!playerInfo.LoadHasLoggedIn())
         {
             OnClickOpenProfile();
-            playerInfo.SaveLoggedIn();
         }
+        
         UpdateProfileModal();
     }
 
-    // ?????? ???????? ???? 
+    // 프로필 수정 모달 열기 
     public void OnClickOpenProfile()
     {
         nicknameWarningText.enabled = false;
@@ -54,12 +54,12 @@ public class MainMenuManager : MonoBehaviour
                 ProfileConfirmButton();
             }, OnClickCancelButton: () =>
             {
-                // close()
+                ProfileCancelButton();
             }
         );
     }
     
-    // ?????? ???? ???? ???? ???? 
+    // 프로필 수정 확인 버튼 클릭 
     void ProfileConfirmButton()
     {
         
@@ -71,6 +71,10 @@ public class MainMenuManager : MonoBehaviour
             UpdateProfileModal();
 
             ModalManager.Instance.Close();
+        }
+        if (!playerInfo.LoadHasLoggedIn())
+        {
+            playerInfo.SaveLoggedIn();
         }
     }
     
@@ -85,7 +89,19 @@ public class MainMenuManager : MonoBehaviour
         return true;
     }
 
-    // ?????? ?????? Player Info ???? 
+    void ProfileCancelButton()
+    {
+        Debug.Log(playerInfo.LoadHasLoggedIn());
+        if ((!playerInfo.LoadHasLoggedIn() && CheckValidNickname())
+            || playerInfo.LoadHasLoggedIn())
+        {
+            ModalManager.Instance.Close();
+            ModalManager.Instance._modal = null;
+        }
+    }
+
+
+    // PlayerInfo.cs 갱신 
     void UpdateNicknameModal()
     {
         _nickname = playerInfo.Nickname;
@@ -112,7 +128,7 @@ public class MainMenuManager : MonoBehaviour
         UpdateCharacterIDModal();
     }
 
-    // stage1~3 ???? ???? 
+    // stage1~3 모달 열기  
     public void OnClickOpenStage1()
     {
         ModalManager.Instance.Open(stage1StartModalPannel,
@@ -121,7 +137,8 @@ public class MainMenuManager : MonoBehaviour
                 ModalManager.Instance.Close();
             }, OnClickCancelButton: () =>
             {
-                // close()
+                ModalManager.Instance.Close();
+                ModalManager.Instance._modal = null;
             }
         );
     }
@@ -134,7 +151,8 @@ public class MainMenuManager : MonoBehaviour
                 ModalManager.Instance.Close();
             }, OnClickCancelButton: () =>
             {
-                // close()
+                ModalManager.Instance.Close();
+                ModalManager.Instance._modal = null;
             }
         );
     }
@@ -147,7 +165,8 @@ public class MainMenuManager : MonoBehaviour
                 ModalManager.Instance.Close();
             }, OnClickCancelButton: () =>
             {
-                // close()
+                ModalManager.Instance.Close();
+                ModalManager.Instance._modal = null;
             }
         );
     }
@@ -157,7 +176,7 @@ public class MainMenuManager : MonoBehaviour
         clickEffect.Play();
     }
 
-    #region ?????? ???? ???? ???? 
+    #region 캐릭터 id 저장
     public void Character0Button()
     {
         _characterID = 0;
