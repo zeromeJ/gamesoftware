@@ -16,7 +16,7 @@ public class ModalManager : MonoBehaviour
     System.Action _OnClickConfrimButton; // 확인 버튼 클릭 시 메서드
     System.Action _OnClickCancelButton; // 취소 버튼 클릭 시 메서드 
 
-    GameObject _modal;
+    public GameObject _modal;
 
     private void Awake()
     {
@@ -59,8 +59,6 @@ public class ModalManager : MonoBehaviour
         {
             _OnClickCancelButton();
         }
-        Close();
-        _modal = null;
     }
 
 }
