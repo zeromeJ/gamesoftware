@@ -28,7 +28,7 @@ public class RT_Player : MonoBehaviour
     }
 
     void PlayerMove(){
-        playerRb2.velocity = new Vector2(horizontal * moveSpeed, playerRb2.velocity.y);
+        playerRb2.linearVelocity = new Vector2(horizontal * moveSpeed, playerRb2.linearVelocity.y);
         if(horizontal < 0){
             playerSpriteRenderer.flipX = true;
         }
@@ -39,10 +39,10 @@ public class RT_Player : MonoBehaviour
         //모바일 이동
         if(Input.touchCount > 0){
             if(Input.GetTouch(0).position.x > 1080/2){
-                playerRb2.velocity = new Vector2(moveSpeed, playerRb2.velocity.y);
+                playerRb2.linearVelocity = new Vector2(moveSpeed, playerRb2.linearVelocity.y);
             }
             else{
-                playerRb2.velocity = new Vector2(-moveSpeed, playerRb2.velocity.y);
+                playerRb2.linearVelocity = new Vector2(-moveSpeed, playerRb2.linearVelocity.y);
             }
         }
     }
