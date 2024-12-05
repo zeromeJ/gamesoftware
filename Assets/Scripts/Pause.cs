@@ -7,6 +7,7 @@ public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject resumePanel;
     public CountDown countDownObject;
+    public static bool isResumePaused = false;
     
     void Start()
     {
@@ -18,12 +19,13 @@ public class Pause : MonoBehaviour
         if(!countDownObject.GetCountDownDone()){
             return;
         }
+        isResumePaused = true;
         countDownObject.GameStop();
         resumePanel.SetActive(true);
     }
 
     public void ResumeClick(){
-        countDownObject.GameResume();
+        countDownObject.GameResume(true);
         resumePanel.SetActive(false);
     }
 }

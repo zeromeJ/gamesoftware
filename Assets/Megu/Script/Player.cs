@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         // Landing Platform
-        if(rigidBody.velocity.y < 0)
+        if(rigidBody.linearVelocity.y < 0)
         {
             Debug.DrawRay(rigidBody.position, Vector3.down, Color.red);
             RaycastHit2D raycastHit = Physics2D.Raycast(rigidBody.position, Vector2.down, 2.5f, LayerMask.GetMask("Platform"));
