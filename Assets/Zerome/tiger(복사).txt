@@ -1,0 +1,243 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System.Linq;
+
+public class TigerGaㅏㅏme : MonoBehaviour
+{
+    [SerializeField] private GameObject modeSelectPanel; // 모드 선택 패널
+    [SerializeField] private CountDown countdown; // CountDown 스크립트
+    [SerializeField] private TextMeshProUGUI bestScoreText;
+    [SerializeField] private TextMeshProUGUI scoreText;
+
+    public Button[] cards; // 9개의 버튼
+
+    [SerializeField] private RectTransform heartContainer;
+    [SerializeField] private Sprite fullHeartSprite;
+    [SerializeField] private Sprite emptyHeartSprite;
+
+    private List<Image> heartImages = new List<Image>();
+    private int lives = 3; // 최대 목숨
+    private int tigerCount = 3; // 현재 배치된 호랑이 수
+
+    private float spawnInterval; // 현재 주기
+    private float originalInterval; // 원래의 주기
+    private bool isHardMode = false; // 모드 플래그
+
+    private Coroutine spawnCoroutine;
+
+    public int tigerBestScore { get; private set; }
+    public int tigerCurrentScore { get; private set; }
+
+    [SerializeField] private GameObject gameEndPanel; // 게임 종료 패널
+
+    void Start()
+    {
+        // 대기 상태로 시작
+        SetGameInactive();
+    }
+
+    private void SetGameInactive()
+    {
+        // 초기 상태에서 버튼 비활성화
+        foreach (var button in cards)
+        {
+            //button.interactable = false;
+        }
+    }
+
+    public void InitializeGame(bool hardMode)
+    {
+        isHardMode = hardMode;
+
+        // 초기 점수 보너스 및 목숨 설정 차별화
+        if (isHardMode)
+        {
+            spawnInterval = 2f;
+            originalInterval = 2f;
+            tigerCurrentScore += 50; // Hard 모드 시작 보너스
+        }
+        else
+        {
+            spawnInterval = 3f;
+            originalInterval = 3f;
+        }
+
+        ResetGame();
+        countdown.StopAndGo();
+
+        // 카운트다운 완료 후 게임 시작
+        countdown.OnCountdownComplete = StartGame;
+    }
+
+    private void ResetGame()
+    {
+        // 게임 상태 초기화
+        lives = 3;
+        tigerCurrentScore = 0;
+        UpdateUI();
+        InitializeHearts();
+    }
+
+    private void InitializeHearts()
+    {
+        // 목숨 UI 초기화
+        foreach (Transform child in heartContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        heartImages.Clear();
+
+        for (int i = 0; i < lives; i++)
+        {
+            GameObject heartObject = new GameObject("Heart" + i);
+            heartObject.transform.SetParent(heartContainer);
+            heartObject.transform.localScale = Vector3.one;
+
+            Image heartImage = heartObject.AddComponent<Image>();
+            heartImage.sprite = fullHeartSprite;
+            heartImages.Add(heartImage);
+            heartImages[i].preserveAspect = true;
+        }
+    }
+
+    private void StartGame()
+    {
+        Debug.Log(isHardMode ? "Hard mode selected" : "Easy mode selected");
+        spawnCoroutine = StartCoroutine(AnimalSpawnRoutine());
+    }
+
+    private IEnumerator AnimalSpawnRoutine()
+    {
+        while (lives > 0)
+        {
+            AssignRandomAnimals();
+            float timer = spawnInterval;
+
+            while (timer > 0)
+            {
+                yield return null;
+                timer -= Time.deltaTime;
+
+                if (tigerCount == 0) break; // 호랑이를 모두 클릭했을 경우 바로 다음 단계로
+            }
+
+            if (tigerCount == 0)
+            {
+                spawnInterval = Mathf.Max(0.5f, spawnInterval - (isHardMode ? 0.2f : 0.1f)); // 주기 감소
+                originalInterval = spawnInterval;
+            }
+            else
+            {
+                spawnInterval = originalInterval; // 틀린 경우 주기 복원
+            }
+        }
+    }
+
+    private void AssignRandomAnimals()
+    {
+        // 모든 버튼 초기화
+        foreach (var card in cards)
+        {
+            card.GetComponent<Image>().sprite = null;
+            card.onClick.RemoveAllListeners();
+            card.interactable = true;
+        }
+
+        // 랜덤 배치
+        int[] indices = Enumerable.Range(0, cards.Length).OrderBy(x => Random.value).ToArray();
+
+        if (isHardMode)
+        {
+            tigerCount = 4; // Hard 모드에서는 호랑이 4마리
+        }
+        else
+        {
+            tigerCount = 3; // Easy 모드에서는 호랑이 3마리
+        }
+
+        for (int i = 0; i < tigerCount; i++)
+        {
+            int tigerIndex = indices[i];
+            cards[tigerIndex].GetComponent<Image>().sprite = fullHeartSprite; // 호랑이 이미지
+            cards[tigerIndex].onClick.AddListener(() => OnTigerClick(tigerIndex));
+        }
+
+        for (int i = tigerCount; i < cards.Length; i++)
+        {
+            int otherIndex = indices[i];
+            cards[otherIndex].GetComponent<Image>().sprite = emptyHeartSprite; // 다른 이미지
+            cards[otherIndex].onClick.AddListener(OnWrongClick);
+        }
+    }
+
+
+    private void OnTigerClick(int index)
+    {
+        tigerCurrentScore += 10;
+        tigerCount--;
+        cards[index].interactable = false; // 클릭한 카드 비활성화
+
+        if (tigerCount == 0)
+        {
+            StopCoroutine(spawnCoroutine);
+            spawnCoroutine = StartCoroutine(AnimalSpawnRoutine());
+        }
+
+        UpdateUI();
+    }
+
+    private void OnWrongClick()
+    {
+        lives--;
+        UpdateLivesUI();
+
+        if (lives == 0)
+        {
+            GameOver();
+        }
+        else
+        {
+            StopCoroutine(spawnCoroutine);
+            spawnCoroutine = StartCoroutine(AnimalSpawnRoutine());
+        }
+    }
+
+    private void UpdateUI()
+    {
+        scoreText.text = "점수 : " + tigerCurrentScore;
+        bestScoreText.text = "최고 점수 : " + tigerBestScore;
+        // 모드에 따라 추가 메시지 표시
+        if (isHardMode)
+        {
+            scoreText.text += " (Hard Mode)";
+        }
+        else
+        {
+            scoreText.text += " (Easy Mode)";
+        }
+    }
+
+    private void UpdateLivesUI()
+    {
+        for (int i = 0; i < heartImages.Count; i++)
+        {
+            heartImages[i].sprite = i < lives ? fullHeartSprite : emptyHeartSprite;
+        }
+    }
+
+    private void GameOver()
+    {
+        StopAllCoroutines();
+        gameEndPanel.SetActive(true);
+
+        if (tigerCurrentScore > tigerBestScore)
+        {
+            tigerBestScore = tigerCurrentScore;
+        }
+
+        Debug.Log("Game Over! Final Score: " + tigerCurrentScore);
+    }
+}
