@@ -147,6 +147,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1376540831}
   - {fileID: 566241657}
   - {fileID: 1890980170}
   - {fileID: 1087018107}
@@ -486,6 +487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5905737504350372018, guid: eee23b7b0f99f1a46a40fa5a83139354, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6421274872160579457, guid: eee23b7b0f99f1a46a40fa5a83139354, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -584,6 +589,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8106845183324742048, guid: eee23b7b0f99f1a46a40fa5a83139354, type: 3}
       propertyPath: m_Color.a
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106845183324742048, guid: eee23b7b0f99f1a46a40fa5a83139354, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106845183324742048, guid: eee23b7b0f99f1a46a40fa5a83139354, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106845183324742048, guid: eee23b7b0f99f1a46a40fa5a83139354, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106845183324742048, guid: eee23b7b0f99f1a46a40fa5a83139354, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8106845183324742048, guid: eee23b7b0f99f1a46a40fa5a83139354, type: 3}
@@ -1029,7 +1050,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 376391035}
-  - component: {fileID: 376391034}
+  - component: {fileID: 376391036}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1037,63 +1058,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &376391034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376391033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a983129128b47288cacf0e822f42f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modeSelectPannel: {fileID: 1208746132}
-  easyModeBtn: {fileID: 1500456950}
-  hardModeBtn: {fileID: 844665258}
-  countdown: {fileID: 1056912857}
-  countDownObject: {fileID: 1056912857}
-  gameEndPanel: {fileID: 1408239833}
-  scoreManager: {fileID: 1144217877}
-  scoreContainer: {fileID: 1533916972}
-  bestScoreText: {fileID: 1399809545}
-  scoreText: {fileID: 1482468058}
-  buttonContainer: {fileID: 110798112}
-  cards:
-  - {fileID: 1404743237}
-  - {fileID: 467079318}
-  - {fileID: 1123865530}
-  - {fileID: 784800759}
-  - {fileID: 508595718}
-  - {fileID: 1507426699}
-  - {fileID: 1692292856}
-  - {fileID: 1703868703}
-  - {fileID: 756832339}
-  tigerSprite: {fileID: 21300000, guid: 05c6b200501044af5b35f0b2ed4ab3ef, type: 3}
-  spriteOptions:
-  - {fileID: 21300000, guid: 2fd3471d07a764ade8fb9d78a4e002a6, type: 3}
-  - {fileID: 21300000, guid: d396b31a265ef4cd299334ef35ea46e2, type: 3}
-  - {fileID: 21300000, guid: f934d37bef8274242889042c7865b4ac, type: 3}
-  - {fileID: 21300000, guid: 44cec9f5a15b341319c09fa88e4c5bc5, type: 3}
-  - {fileID: 21300000, guid: 5543a4613d0d5458fb4492d202dd8c65, type: 3}
-  squirrelSprite: {fileID: 21300000, guid: 2fd3471d07a764ade8fb9d78a4e002a6, type: 3}
-  dogSprite: {fileID: 21300000, guid: d396b31a265ef4cd299334ef35ea46e2, type: 3}
-  rabbitSprite: {fileID: 21300000, guid: 5543a4613d0d5458fb4492d202dd8c65, type: 3}
-  catSprite: {fileID: 21300000, guid: f934d37bef8274242889042c7865b4ac, type: 3}
-  monkeySprite: {fileID: 21300000, guid: 44cec9f5a15b341319c09fa88e4c5bc5, type: 3}
-  heartContainer: {fileID: 627164769}
-  brokenHeart2: {fileID: 718674099}
-  brokenHeart1: {fileID: 682291785}
-  brokenHeart0: {fileID: 1576247393}
-  feverController: {fileID: 1461448841}
-  feverContainer: {fileID: 98800358}
-  feverTimeObject: {fileID: 187438882}
-  feverTimeText: {fileID: 1869803448}
-  gameAudioSource: {fileID: 654871879}
-  endingAudioSource: {fileID: 1877366590}
-  bonusScore: 0
-  clickedTigerSprite: {fileID: 21300000, guid: 05c6b200501044af5b35f0b2ed4ab3ef, type: 3}
 --- !u!4 &376391035
 Transform:
   m_ObjectHideFlags: 0
@@ -1109,6 +1073,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &376391036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376391033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ad37156a31543ae98ca0f792f7de4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modeController: {fileID: 481309770}
+  countdown: {fileID: 1056912857}
+  uIUpdateController: {fileID: 823867731}
+  tigerCardsController: {fileID: 479916717}
+  heartController: {fileID: 836244578}
+  feverController: {fileID: 1461448841}
+  tigerBGMController: {fileID: 1346706959}
+  gameEndPanel: {fileID: 1408239833}
 --- !u!1 &409524090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1350,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -1378,6 +1362,76 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &479916716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 479916718}
+  - component: {fileID: 479916717}
+  m_Layer: 0
+  m_Name: CardsController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &479916717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479916716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561808cd80af64715ae07834080eaa1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uIUpdateController: {fileID: 823867731}
+  heartController: {fileID: 836244578}
+  tigerGame: {fileID: 376391036}
+  cards:
+  - {fileID: 1404743237}
+  - {fileID: 467079318}
+  - {fileID: 1123865530}
+  - {fileID: 784800759}
+  - {fileID: 508595718}
+  - {fileID: 1507426699}
+  - {fileID: 1692292856}
+  - {fileID: 1703868703}
+  - {fileID: 756832339}
+  tigerSprite: {fileID: 21300000, guid: 05c6b200501044af5b35f0b2ed4ab3ef, type: 3}
+  clickedTigerSprite: {fileID: -6879500054101574419, guid: 99238b0bcf8ee4ec591b9b0556f46032, type: 3}
+  tigerSpriteOptions:
+  - {fileID: 21300000, guid: 2fd3471d07a764ade8fb9d78a4e002a6, type: 3}
+  - {fileID: 21300000, guid: d396b31a265ef4cd299334ef35ea46e2, type: 3}
+  - {fileID: 21300000, guid: 5543a4613d0d5458fb4492d202dd8c65, type: 3}
+  - {fileID: 21300000, guid: f934d37bef8274242889042c7865b4ac, type: 3}
+  - {fileID: 21300000, guid: 44cec9f5a15b341319c09fa88e4c5bc5, type: 3}
+  spriteOptionsLength: 0
+  spriteUsageCounts: 
+  isStopped: 0
+  vibrationController: {fileID: 1834080902}
+  redBG: {fileID: 1538540207}
+--- !u!4 &479916718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479916716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 69.36446, y: 1195.5835, z: -13.069874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &481309769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,9 +1461,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a6a019d69a24b588234240a2102ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modeSelectPanel: {fileID: 1208746132}
+  tigerGame: {fileID: 376391036}
   countdown: {fileID: 1056912857}
-  tigerGame: {fileID: 376391034}
+  modeSelectPannel: {fileID: 1208746132}
   easyModeBtn: {fileID: 1500456950}
   hardModeBtn: {fileID: 844665258}
 --- !u!224 &481309771
@@ -1650,7 +1704,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -1682,7 +1736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6a12d454a9ca84faeb3073301b1a57c7, type: 3}
+  m_Sprite: {fileID: -6879500054101574419, guid: 99238b0bcf8ee4ec591b9b0556f46032, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1792,6 +1846,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &555452152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555452153}
+  - component: {fileID: 555452155}
+  - component: {fileID: 555452154}
+  m_Layer: 5
+  m_Name: BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &555452153
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555452152}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1056912854}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2000, y: 3000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &555452154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555452152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.44705883}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &555452155
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555452152}
+  m_CullTransparentMesh: 1
 --- !u!1 &566241656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +2004,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -2328,7 +2457,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -2951,7 +3080,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -3084,7 +3213,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -3270,6 +3399,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808712688}
   m_CullTransparentMesh: 1
+--- !u!1 &823867730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 823867732}
+  - component: {fileID: 823867731}
+  m_Layer: 0
+  m_Name: UIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &823867731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823867730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c9eb1c8dd394d10be86b129690b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 1144217877}
+  bestScoreText: {fileID: 1399809545}
+  scoreText: {fileID: 1482468058}
+  heartContainer: {fileID: 627164769}
+  scoreContainer: {fileID: 1533916972}
+  buttonContainer: {fileID: 110798112}
+  feverButtonContainer: {fileID: 98800358}
+  feverTimerContainer: {fileID: 187438882}
+  feverTimeText: {fileID: 1869803448}
+--- !u!4 &823867732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823867730}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 69.36446, y: 1195.5835, z: -13.069874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &836244577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 836244579}
+  - component: {fileID: 836244578}
+  m_Layer: 0
+  m_Name: HeartController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &836244578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836244577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9afa0f7ad3c4f9fa668c461ea4a853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartContainer: {fileID: 627164769}
+  brokenHeart2: {fileID: 718674099}
+  brokenHeart1: {fileID: 682291785}
+  brokenHeart0: {fileID: 1576247393}
+--- !u!4 &836244579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836244577}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 69.36446, y: 1195.5835, z: -13.069874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844665256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,51 +3633,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844665256}
   m_CullTransparentMesh: 1
---- !u!1 &867979002
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 867979004}
-  - component: {fileID: 867979003}
-  m_Layer: 0
-  m_Name: ObjectController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &867979003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867979002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4933e853f4954e0eb497f6689a8a9f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonContainer: {fileID: 110798112}
---- !u!4 &867979004
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867979002}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1405.7725, y: 871.87317, z: -11.0777235}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &901579505
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,7 +4530,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7336154071727620487, guid: af8fe6bb05a84064fba7e10a10fe10d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 555452153}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af8fe6bb05a84064fba7e10a10fe10d0, type: 3}
 --- !u!224 &1056912854 stripped
@@ -4447,7 +4635,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -4852,7 +5040,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -4965,7 +5153,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -5265,7 +5453,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -5488,8 +5676,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0012207031, y: 0.027832031}
-  m_SizeDelta: {x: -853.33, y: -1517}
+  m_AnchoredPosition: {x: -0.0012207031, y: -26.70166}
+  m_SizeDelta: {x: -621.6783, y: -1267.5287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208746136
 MonoBehaviour:
@@ -5612,7 +5800,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -6289,7 +6477,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -6339,6 +6527,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274570096}
   m_CullTransparentMesh: 1
+--- !u!1 &1346706958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1346706960}
+  - component: {fileID: 1346706959}
+  m_Layer: 0
+  m_Name: BGMController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1346706959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346706958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef2a3152353d4d1c823e707c7801b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameAudioSource: {fileID: 654871879}
+  endingAudioSource: {fileID: 1877366590}
+--- !u!4 &1346706960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346706958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 69.36446, y: 1195.5835, z: -13.069874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1373597787
 GameObject:
   m_ObjectHideFlags: 0
@@ -6471,6 +6705,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373597787}
+  m_CullTransparentMesh: 1
+--- !u!1 &1376540830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1376540831}
+  - component: {fileID: 1376540833}
+  - component: {fileID: 1376540832}
+  m_Layer: 5
+  m_Name: feverBG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1376540831
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376540830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 98800359}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2000, y: 3000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1376540832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376540830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.5803922}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1376540833
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376540830}
   m_CullTransparentMesh: 1
 --- !u!1 &1391693717
 GameObject:
@@ -6998,7 +7307,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -7280,7 +7589,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d85d5027a5584570b939f10b79a0bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tigerObject: {fileID: 376391034}
+  tigerObject: {fileID: 376391036}
+  UIUpdateController: {fileID: 823867731}
+  feverButtonContainer: {fileID: 98800358}
   feverCards:
   - {fileID: 566241658}
   - {fileID: 1890980171}
@@ -7291,7 +7602,7 @@ MonoBehaviour:
   - {fileID: 1114182224}
   - {fileID: 648434736}
   - {fileID: 1214694588}
-  tigerSprite: {fileID: 21300000, guid: 05c6b200501044af5b35f0b2ed4ab3ef, type: 3}
+  vibrationController: {fileID: 1834080902}
 --- !u!4 &1461448842
 Transform:
   m_ObjectHideFlags: 0
@@ -7795,7 +8106,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -7882,6 +8193,81 @@ RectTransform:
   m_AnchoredPosition: {x: -460, y: 1046.3778}
   m_SizeDelta: {x: 300, y: 117.79999}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1538540207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538540208}
+  - component: {fileID: 1538540210}
+  - component: {fileID: 1538540209}
+  m_Layer: 5
+  m_Name: redBG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1538540208
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538540207}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2028796871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2000, y: 3000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1538540209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538540207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.21960784}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1538540210
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538540207}
+  m_CullTransparentMesh: 1
 --- !u!1 &1576247393
 GameObject:
   m_ObjectHideFlags: 0
@@ -8445,7 +8831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -8714,7 +9100,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -8847,7 +9233,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -8954,7 +9340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB9C8\uAD6C \uB20C\uB7EC!"
+  m_text: "\uB9C8\uAD6C \uB20C\uB7EC!!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bb178965e7424f4db4d75fedf4c70bf, type: 2}
   m_sharedMaterial: {fileID: 8029207030809910320, guid: 4bb178965e7424f4db4d75fedf4c70bf, type: 2}
@@ -9033,6 +9419,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735210318}
   m_CullTransparentMesh: 1
+--- !u!1 &1834080901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1834080903}
+  - component: {fileID: 1834080902}
+  m_Layer: 0
+  m_Name: VibController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1834080902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834080901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13f84e68fc7445b495ebac46dd69fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1834080903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834080901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 115.66478, y: 1197.3612, z: -13.385008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869803446
 GameObject:
   m_ObjectHideFlags: 0
@@ -9394,15 +9824,15 @@ RectTransform:
   m_Children:
   - {fileID: 2028796871}
   - {fileID: 110798113}
+  - {fileID: 627164770}
   - {fileID: 98800359}
   - {fileID: 187438883}
   - {fileID: 1056912854}
-  - {fileID: 189097206}
   - {fileID: 1208746133}
+  - {fileID: 189097206}
   - {fileID: 1533916973}
-  - {fileID: 627164770}
-  - {fileID: 1408239834}
   - {fileID: 1953739321}
+  - {fileID: 1408239834}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9493,7 +9923,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376391034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: tiger, Assembly-CSharp
         m_MethodName: OnCardClick
         m_Mode: 3
@@ -9947,7 +10377,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1538540208}
   m_Father: {fileID: 1890586601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -10000,9 +10431,13 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1890586601}
   - {fileID: 610759443}
-  - {fileID: 376391035}
   - {fileID: 2023955972}
-  - {fileID: 481309771}
   - {fileID: 165169222}
-  - {fileID: 867979004}
   - {fileID: 1461448842}
+  - {fileID: 836244579}
+  - {fileID: 481309771}
+  - {fileID: 1346706960}
+  - {fileID: 479916718}
+  - {fileID: 376391035}
+  - {fileID: 823867732}
+  - {fileID: 1834080903}

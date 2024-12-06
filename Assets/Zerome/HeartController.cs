@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class HeartController : MonoBehaviour
 {
-    // Use this for initialization
-    void Start()
+    [SerializeField] private GameObject heartContainer; // heart 컨테이너
+    [SerializeField] private GameObject brokenHeart2; // 깨진 하트 이미지
+    [SerializeField] private GameObject brokenHeart1; // 깨진 하트 이미지 
+    [SerializeField] private GameObject brokenHeart0; // 깨진 하트 이미지
+
+    public void ControllLivesUI(int lives)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (lives == 2) brokenHeart2.SetActive(true);
+        if (lives == 1) brokenHeart1.SetActive(true);
+        if (lives == 0) brokenHeart0.SetActive(true);
     }
 }
