@@ -13,7 +13,7 @@ public class Pause : MonoBehaviour
     }
 
     public void PauseClick(){
-        if(!countDownObject.GetCountDownDone()){
+        if(Time.timeScale == 0){
             return;
         }
         isResumePaused = true;

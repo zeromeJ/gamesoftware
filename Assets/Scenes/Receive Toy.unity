@@ -3128,6 +3128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ffd1a8f0f75dc488a63e0889a7d991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickEffect: {fileID: 0}
 --- !u!1 &1533326407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,7 +3700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC8C\uC784 \uB05D!"
+  m_text: "\uAC8C\uC784 \uC885\uB8CC!!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bb178965e7424f4db4d75fedf4c70bf, type: 2}
   m_sharedMaterial: {fileID: 8029207030809910320, guid: 4bb178965e7424f4db4d75fedf4c70bf, type: 2}
@@ -3868,6 +3869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ffd1a8f0f75dc488a63e0889a7d991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickEffect: {fileID: 0}
 --- !u!114 &2121390846
 MonoBehaviour:
   m_ObjectHideFlags: 0

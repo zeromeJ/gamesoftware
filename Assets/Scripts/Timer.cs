@@ -19,16 +19,16 @@ public class Timer : MonoBehaviour
     void Start()
     {
         timerText = GetComponent<TextMeshProUGUI>();
-        countDown = FindObjectOfType<CountDown>();
+        countDown = FindAnyObjectByType<CountDown>();
         GameStart();
     }
 
 
     void Update()
     {
-        if(countDown.GetCountDownDone()){
+        /*if(countDown.GetCountDownDone()){
             countDown.ResetTimeScale();
-        }
+        }*/
         if(!timerIsDone){
             remainTime -= Time.deltaTime;
             timerText.text = Mathf.RoundToInt(remainTime).ToString();
@@ -45,7 +45,8 @@ public class Timer : MonoBehaviour
 
     void GameOver(){
         timerIsDone = true;
-        countDown.GameStop();
+        //countDown.GameStop();
+        Time.timeScale = 0;
         restartPanel.SetActive(true);
     }
 
