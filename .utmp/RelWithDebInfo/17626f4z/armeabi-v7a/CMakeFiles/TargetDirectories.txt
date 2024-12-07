@@ -1,5 +1,0 @@
-D:/My/gitrepo/GG/.utmp/RelWithDebInfo/17626f4z/armeabi-v7a/CMakeFiles/edit_cache.dir
-D:/My/gitrepo/GG/.utmp/RelWithDebInfo/17626f4z/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-D:/My/gitrepo/GG/.utmp/RelWithDebInfo/17626f4z/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
-D:/My/gitrepo/GG/.utmp/RelWithDebInfo/17626f4z/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
-D:/My/gitrepo/GG/.utmp/RelWithDebInfo/17626f4z/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir
