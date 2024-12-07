@@ -205,10 +205,12 @@ public class TigerCardsController : MonoBehaviour
     }
 
     public VibrationController vibrationController;
+    [SerializeField] private AudioSource effectGetWrong;
     [SerializeField] private GameObject redBG;
     int curLife = 3;
     void OnWrongClick()
     {
+        effectGetWrong.Play();
         StartCoroutine(ToggleBG());
         TigerGame.tigerLife--;
         curLife = TigerGame.tigerLife;
