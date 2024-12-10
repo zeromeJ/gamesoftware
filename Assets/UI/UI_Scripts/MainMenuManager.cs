@@ -71,10 +71,11 @@ public class MainMenuManager : MonoBehaviour
             UpdateProfileModal();
 
             ModalManager.Instance.Close();
-        }
-        if (!playerInfo.LoadHasLoggedIn())
-        {
-            playerInfo.SaveLoggedIn();
+
+            if (!playerInfo.LoadHasLoggedIn())
+            {
+                playerInfo.SaveLoggedIn();
+            }
         }
     }
     
@@ -91,9 +92,11 @@ public class MainMenuManager : MonoBehaviour
 
     void ProfileCancelButton()
     {
-        Debug.Log(playerInfo.LoadHasLoggedIn());
-        if ((!playerInfo.LoadHasLoggedIn() && CheckValidNickname())
-            || playerInfo.LoadHasLoggedIn())
+        if ( !playerInfo.LoadHasLoggedIn() && (_nickname == null || CheckValidNickname() ))
+        {
+            nicknameWarningText.enabled = true;
+        }
+        else if ( playerInfo.LoadHasLoggedIn())
         {
             ModalManager.Instance.Close();
             ModalManager.Instance._modal = null;
